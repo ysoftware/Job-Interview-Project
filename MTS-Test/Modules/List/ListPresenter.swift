@@ -7,3 +7,22 @@
 //
 
 import Foundation
+
+class ListPresenter: ListPresenterProtocol {
+
+	// MARK: - Properties
+
+	weak var view:ListViewProtocol!
+
+	var router: ListRouterProtocol!
+
+	var interactor: ListInteractorProtocol!
+
+	// MARK: - Init
+
+	required init(with view:ListViewProtocol) {
+		self.view = view
+	}
+
+	// MARK: - Methods
+}

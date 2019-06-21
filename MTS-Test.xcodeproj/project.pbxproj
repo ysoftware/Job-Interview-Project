@@ -17,10 +17,13 @@
 		71AFB35D22BC06760064077B /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB35C22BC06760064077B /* ListPresenter.swift */; };
 		71AFB35F22BC089C0064077B /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB35E22BC089C0064077B /* ListRouter.swift */; };
 		71AFB36122BC08AC0064077B /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36022BC08AC0064077B /* ListInteractor.swift */; };
-		71AFB36322BC08C60064077B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36222BC08C60064077B /* Networking.swift */; };
+		71AFB36322BC08C60064077B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36222BC08C60064077B /* Network.swift */; };
 		71AFB36522BC08D00064077B /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36422BC08D00064077B /* Assembly.swift */; };
 		71AFB36922BC09190064077B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36822BC09190064077B /* ListViewController.swift */; };
 		71AFB36B22BC09480064077B /* ListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36A22BC09480064077B /* ListProtocols.swift */; };
+		71AFB36E22BCEA6D0064077B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36D22BCEA6D0064077B /* Parser.swift */; };
+		71AFB37022BCEA880064077B /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36F22BCEA880064077B /* Cache.swift */; };
+		71AFB37222BCF09A0064077B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37122BCF09A0064077B /* Api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,10 +40,13 @@
 		71AFB35C22BC06760064077B /* ListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		71AFB35E22BC089C0064077B /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		71AFB36022BC08AC0064077B /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
-		71AFB36222BC08C60064077B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		71AFB36222BC08C60064077B /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71AFB36422BC08D00064077B /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		71AFB36822BC09190064077B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		71AFB36A22BC09480064077B /* ListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProtocols.swift; sourceTree = "<group>"; };
+		71AFB36D22BCEA6D0064077B /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		71AFB36F22BCEA880064077B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
+		71AFB37122BCF09A0064077B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		72E848B1D601A80D84A8B011 /* Pods-MTS-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTS-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-MTS-Test/Pods-MTS-Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,9 +92,9 @@
 		71A89AC222BC011500C0468C /* MTS-Test */ = {
 			isa = PBXGroup;
 			children = (
+				71AFB36C22BCEA590064077B /* Service */,
 				71A89AC722BC011500C0468C /* Main.storyboard */,
 				71AFB36422BC08D00064077B /* Assembly.swift */,
-				71AFB36222BC08C60064077B /* Networking.swift */,
 				71AFB35A22BC06580064077B /* Modules */,
 				71AFB35522BC04170064077B /* Entity */,
 				71AFB36722BC08E10064077B /* Supporting Files */,
@@ -134,6 +140,17 @@
 				71A89ACF22BC011700C0468C /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		71AFB36C22BCEA590064077B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				71AFB36D22BCEA6D0064077B /* Parser.swift */,
+				71AFB36222BC08C60064077B /* Network.swift */,
+				71AFB36F22BCEA880064077B /* Cache.swift */,
+				71AFB37122BCF09A0064077B /* Api.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		DD60D4BA677CEC33FD4F3CD0 /* Frameworks */ = {
@@ -266,13 +283,16 @@
 			files = (
 				71AFB35F22BC089C0064077B /* ListRouter.swift in Sources */,
 				71AFB35722BC04380064077B /* Recipe.swift in Sources */,
-				71AFB36322BC08C60064077B /* Networking.swift in Sources */,
+				71AFB36322BC08C60064077B /* Network.swift in Sources */,
 				71AFB36B22BC09480064077B /* ListProtocols.swift in Sources */,
 				71AFB36522BC08D00064077B /* Assembly.swift in Sources */,
 				71AFB36122BC08AC0064077B /* ListInteractor.swift in Sources */,
+				71AFB37222BCF09A0064077B /* Api.swift in Sources */,
 				71AFB36922BC09190064077B /* ListViewController.swift in Sources */,
+				71AFB36E22BCEA6D0064077B /* Parser.swift in Sources */,
 				71AFB35922BC04E30064077B /* Detail.swift in Sources */,
 				71AFB35D22BC06760064077B /* ListPresenter.swift in Sources */,
+				71AFB37022BCEA880064077B /* Cache.swift in Sources */,
 				71A89AC422BC011500C0468C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

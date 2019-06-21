@@ -14,12 +14,13 @@ protocol ListViewProtocol: class {
 
 protocol ListPresenterProtocol: class {
 
+	var router: ListRouterProtocol! { get set }
 }
 
 protocol ListInteractorProtocol: class {
 	
 }
 
-protocol ListAssemblyProtocol: class {
+protocol ListRouterProtocol: class {
 	
 }

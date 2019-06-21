@@ -9,6 +9,13 @@
 import Foundation
 import RealmSwift
 
-final class Recipe: Object {
+final class Recipe: Object, Decodable {
 
+	@objc dynamic var publisher = ""
+
+	@objc dynamic var recipe_id = ""
+
+	@objc dynamic var image_url = ""
+
+	@objc dynamic var social_rank = 0.0
 }
