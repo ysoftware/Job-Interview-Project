@@ -8,3 +8,10 @@
 
 import Foundation
 
+protocol CacheProtocol {
+	
+}
+
+class Cache: CacheProtocol {
+
+}
