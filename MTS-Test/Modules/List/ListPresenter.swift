@@ -25,4 +25,11 @@ class ListPresenter: ListPresenterProtocol {
 	}
 
 	// MARK: - Methods
+
+	func configureView() {
+
+		interactor.fetchList { result in
+
+		}
+	}
 }

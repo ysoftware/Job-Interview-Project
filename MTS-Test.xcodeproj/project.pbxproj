@@ -18,12 +18,17 @@
 		71AFB35F22BC089C0064077B /* ListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB35E22BC089C0064077B /* ListRouter.swift */; };
 		71AFB36122BC08AC0064077B /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36022BC08AC0064077B /* ListInteractor.swift */; };
 		71AFB36322BC08C60064077B /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36222BC08C60064077B /* Network.swift */; };
-		71AFB36522BC08D00064077B /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36422BC08D00064077B /* Assembly.swift */; };
+		71AFB36522BC08D00064077B /* ApiAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36422BC08D00064077B /* ApiAssembly.swift */; };
 		71AFB36922BC09190064077B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36822BC09190064077B /* ListViewController.swift */; };
 		71AFB36B22BC09480064077B /* ListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36A22BC09480064077B /* ListProtocols.swift */; };
 		71AFB36E22BCEA6D0064077B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36D22BCEA6D0064077B /* Parser.swift */; };
 		71AFB37022BCEA880064077B /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB36F22BCEA880064077B /* Cache.swift */; };
 		71AFB37222BCF09A0064077B /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37122BCF09A0064077B /* Api.swift */; };
+		71AFB37722BD6C510064077B /* List+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37622BD6C510064077B /* List+Codable.swift */; };
+		71AFB37922BE13A60064077B /* ListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37822BE13A60064077B /* ListAssembly.swift */; };
+		71AFB37C22BE29910064077B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37B22BE29910064077B /* DetailViewController.swift */; };
+		71AFB38122BE2AE00064077B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38022BE2ADF0064077B /* R.generated.swift */; };
+		71AFB38422BE39E80064077B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38322BE39E80064077B /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,12 +46,17 @@
 		71AFB35E22BC089C0064077B /* ListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRouter.swift; sourceTree = "<group>"; };
 		71AFB36022BC08AC0064077B /* ListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		71AFB36222BC08C60064077B /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		71AFB36422BC08D00064077B /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		71AFB36422BC08D00064077B /* ApiAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAssembly.swift; sourceTree = "<group>"; };
 		71AFB36822BC09190064077B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		71AFB36A22BC09480064077B /* ListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListProtocols.swift; sourceTree = "<group>"; };
 		71AFB36D22BCEA6D0064077B /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		71AFB36F22BCEA880064077B /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		71AFB37122BCF09A0064077B /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		71AFB37622BD6C510064077B /* List+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Codable.swift"; sourceTree = "<group>"; };
+		71AFB37822BE13A60064077B /* ListAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAssembly.swift; sourceTree = "<group>"; };
+		71AFB37B22BE29910064077B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		71AFB38022BE2ADF0064077B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		71AFB38322BE39E80064077B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		72E848B1D601A80D84A8B011 /* Pods-MTS-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTS-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-MTS-Test/Pods-MTS-Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,11 +102,11 @@
 		71A89AC222BC011500C0468C /* MTS-Test */ = {
 			isa = PBXGroup;
 			children = (
-				71AFB36C22BCEA590064077B /* Service */,
+				71AFB38222BE39DC0064077B /* Services */,
 				71A89AC722BC011500C0468C /* Main.storyboard */,
-				71AFB36422BC08D00064077B /* Assembly.swift */,
 				71AFB35A22BC06580064077B /* Modules */,
 				71AFB35522BC04170064077B /* Entity */,
+				71AFB37522BD6C440064077B /* Extensions */,
 				71AFB36722BC08E10064077B /* Supporting Files */,
 			);
 			path = "MTS-Test";
@@ -114,6 +124,7 @@
 		71AFB35A22BC06580064077B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				71AFB37A22BE29830064077B /* Detail */,
 				71AFB35B22BC06600064077B /* List */,
 			);
 			path = Modules;
@@ -123,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				71AFB36A22BC09480064077B /* ListProtocols.swift */,
+				71AFB37822BE13A60064077B /* ListAssembly.swift */,
 				71AFB35C22BC06760064077B /* ListPresenter.swift */,
 				71AFB35E22BC089C0064077B /* ListRouter.swift */,
 				71AFB36022BC08AC0064077B /* ListInteractor.swift */,
@@ -134,6 +146,7 @@
 		71AFB36722BC08E10064077B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				71AFB38022BE2ADF0064077B /* R.generated.swift */,
 				71A89AC322BC011500C0468C /* AppDelegate.swift */,
 				71A89ACA22BC011700C0468C /* Assets.xcassets */,
 				71A89ACC22BC011700C0468C /* LaunchScreen.storyboard */,
@@ -142,15 +155,41 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		71AFB36C22BCEA590064077B /* Service */ = {
+		71AFB36C22BCEA590064077B /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				71AFB36422BC08D00064077B /* ApiAssembly.swift */,
 				71AFB36D22BCEA6D0064077B /* Parser.swift */,
 				71AFB36222BC08C60064077B /* Network.swift */,
 				71AFB36F22BCEA880064077B /* Cache.swift */,
 				71AFB37122BCF09A0064077B /* Api.swift */,
 			);
-			path = Service;
+			path = Api;
+			sourceTree = "<group>";
+		};
+		71AFB37522BD6C440064077B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				71AFB37622BD6C510064077B /* List+Codable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		71AFB37A22BE29830064077B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				71AFB37B22BE29910064077B /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		71AFB38222BE39DC0064077B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				71AFB38322BE39E80064077B /* Service.swift */,
+				71AFB36C22BCEA590064077B /* Api */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		DD60D4BA677CEC33FD4F3CD0 /* Frameworks */ = {
@@ -169,6 +208,7 @@
 			buildConfigurationList = 71A89AD222BC011700C0468C /* Build configuration list for PBXNativeTarget "MTS-Test" */;
 			buildPhases = (
 				632C8D60636264A9D73000BF /* [CP] Check Pods Manifest.lock */,
+				71AFB37D22BE2A890064077B /* Generate R.swift */,
 				71A89ABC22BC011500C0468C /* Sources */,
 				71A89ABD22BC011500C0468C /* Frameworks */,
 				71A89ABE22BC011500C0468C /* Resources */,
@@ -239,6 +279,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MTS-Test/Pods-MTS-Test-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
@@ -247,6 +288,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
@@ -274,6 +316,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		71AFB37D22BE2A890064077B /* Generate R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "Generate R.swift";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -283,9 +345,14 @@
 			files = (
 				71AFB35F22BC089C0064077B /* ListRouter.swift in Sources */,
 				71AFB35722BC04380064077B /* Recipe.swift in Sources */,
+				71AFB37922BE13A60064077B /* ListAssembly.swift in Sources */,
 				71AFB36322BC08C60064077B /* Network.swift in Sources */,
+				71AFB37722BD6C510064077B /* List+Codable.swift in Sources */,
+				71AFB38422BE39E80064077B /* Service.swift in Sources */,
 				71AFB36B22BC09480064077B /* ListProtocols.swift in Sources */,
-				71AFB36522BC08D00064077B /* Assembly.swift in Sources */,
+				71AFB36522BC08D00064077B /* ApiAssembly.swift in Sources */,
+				71AFB37C22BE29910064077B /* DetailViewController.swift in Sources */,
+				71AFB38122BE2AE00064077B /* R.generated.swift in Sources */,
 				71AFB36122BC08AC0064077B /* ListInteractor.swift in Sources */,
 				71AFB37222BCF09A0064077B /* Api.swift in Sources */,
 				71AFB36922BC09190064077B /* ListViewController.swift in Sources */,

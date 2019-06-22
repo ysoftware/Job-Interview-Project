@@ -9,6 +9,17 @@
 import Foundation
 import RealmSwift
 
+final class RecipeList: Object {
+
+	var recipes = List<Recipe>()
+
+	@objc dynamic var page = 0
+
+	override static func primaryKey() -> String? {
+		return "page"
+	}
+}
+
 final class Recipe: Object, Decodable {
 
 	@objc dynamic var publisher = ""

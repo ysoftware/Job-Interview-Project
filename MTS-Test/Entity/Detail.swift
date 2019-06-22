@@ -25,5 +25,10 @@ final class Detail: Object, Decodable {
 
 	@objc dynamic var social_rank = 0.0
 
-	@objc dynamic var ingredients:[String] = []
+	// to-do why not @objc dynamic?
+	var ingredients = List<String>()
+
+	override static func primaryKey() -> String? {
+		return "recipe_id"
+	}
 }
