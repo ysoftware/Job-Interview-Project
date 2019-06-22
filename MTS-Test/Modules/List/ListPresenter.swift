@@ -12,7 +12,9 @@ class ListPresenter: ListPresenterProtocol {
 
 	// MARK: - Properties
 
-	weak var view:ListViewProtocol!
+	private var dataSource:ListDataSourceProtocol!
+
+	private weak var view:ListViewProtocol!
 
 	var router: ListRouterProtocol!
 
@@ -28,6 +30,10 @@ class ListPresenter: ListPresenterProtocol {
 
 	func didLoadView() {
 
+		let ds = ListDataSource(tableView: view.tableView)
+		dataSource = ds
+		view.setDataSource(ds)
+
 		interactor.fetchList { result in
 			do {
 				let data = try result.get()
@@ -35,7 +41,8 @@ class ListPresenter: ListPresenterProtocol {
 					self.view.showEmptyList()
 				}
 				else {
-					self.view.show(data)
+					self.view.showData()
+					self.dataSource.set(data)
 				}
 			}
 			catch {
@@ -45,10 +52,11 @@ class ListPresenter: ListPresenterProtocol {
 	}
 
 	func didScrollToLastCell() {
+
 		interactor.loadMore { result in
 			do {
 				let data = try result.get()
-				self.view.showMore(data)
+				self.dataSource.append(data)
 			}
 			catch {
 				// show pagination error?
@@ -58,5 +66,13 @@ class ListPresenter: ListPresenterProtocol {
 
 	func didTapElement(_ index: Int) {
 		router.presentDetail(at: index)
+	}
+
+	private func show(_ data: [Recipe]) {
+		dataSource.set(data)
+	}
+
+	private func showMore(_ data: [Recipe]) {
+		dataSource.append(data)
 	}
 }

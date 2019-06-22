@@ -16,16 +16,14 @@ final class ListViewController: UIViewController {
 
 	// MARK: - Properties
 
-	private let assembly: ListAssemblyProtocol = ListAssembly()
 	private var presenter: ListPresenterProtocol!
-	private var dataSource:ListDataSource!
 	private var tableDelegate:ListTableDelegate!
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		// module entry point
-		presenter = assembly.assemble(with: self)
+		presenter = ListConfigurator().configure(with: self)
 		presenter.didLoadView()
 
 		tableView.delegate = tableDelegate
@@ -51,11 +49,21 @@ extension ListViewController: ListViewProtocol {
 
 	}
 
-	func showMore(_ data: [Recipe]) {
-		dataSource.append(data)
+	func showData() {
+		
 	}
 
-	func show(_ data: [Recipe]) {
-		dataSource = ListDataSource(tableView: tableView)
+	func setDataSource(_ dataSource: UITableViewDataSource) {
+		tableView.dataSource = dataSource
+	}
+}
+
+class ListTableDelegate:NSObject, UITableViewDelegate {
+
+	var elementTapped:((_ index:Int)->Void)?
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		elementTapped?(indexPath.row)
 	}
 }

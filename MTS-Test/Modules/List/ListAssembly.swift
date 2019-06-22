@@ -8,9 +8,9 @@
 
 import Swinject
 
-class ListAssembly: ListAssemblyProtocol {
+class ListConfigurator {
 
-	func assemble(with view:ListViewController) -> ListPresenterProtocol {
+	func configure(with view:ListViewController) -> ListPresenterProtocol {
 		let container = Container()
 
 		container.register(ListInteractorProtocol.self) { _, presenter in

@@ -1,5 +1,5 @@
 //
-//  ListTableView.swift
+//  ListDataSource.swift
 //  MTS-Test
 //
 //  Created by ysoftware on 22/06/2019.
@@ -8,7 +8,14 @@
 
 import UIKit
 
-class ListDataSource: NSObject, UITableViewDataSource {
+protocol ListDataSourceProtocol {
+
+	func set(_ data: [Recipe])
+
+	func append(_ data:[Recipe])
+}
+
+class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 
 	private var array:[Recipe] = []
 	private var tableView: UITableView!
@@ -33,18 +40,13 @@ class ListDataSource: NSObject, UITableViewDataSource {
 
 	// MARK: - Methods
 
+	func set(_ data: [Recipe]) {
+		array = []
+		tableView.reloadData()
+	}
+
 	func append(_ data:[Recipe]) {
 		array.append(contentsOf: data)
 		tableView.reloadData()
-	}
-}
-
-class ListTableDelegate:NSObject, UITableViewDelegate {
-
-	var elementTapped:((_ index:Int)->Void)?
-
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-		elementTapped?(indexPath.row)
 	}
 }

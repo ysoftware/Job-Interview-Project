@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol ListAssemblyProtocol {
-
-	// we have to use a specific view controller for routing purposes
-	// maybe it would be better to make a shared router for all modules
-	// instead of breaking dependency inversion principle
-	func assemble(with view:ListViewController) -> ListPresenterProtocol
-}
-
 protocol ListViewProtocol: class {
+
+	var tableView:UITableView! { get }
 
 	func showLoading()
 
@@ -24,9 +18,9 @@ protocol ListViewProtocol: class {
 
 	func showError(_ error:Error)
 
-	func show(_ data: [Recipe])
+	func showData()
 
-	func showMore(_ data: [Recipe])
+	func setDataSource(_ dataSource: UITableViewDataSource)
 }
 
 protocol ListPresenterProtocol: class {
