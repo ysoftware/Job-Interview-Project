@@ -23,6 +23,17 @@ class ListInteractor: ListInteractorProtocol {
 	// MARK: - Methods
 
 	func fetchList(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
-		Service.api.getRecipes(page: page, completion: completion)
+
+		// to-do check if already loading
+
+		page = 0
+		loadMore(completion)
+	}
+
+	func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
+		Service.api.getRecipes(page: page) { result in
+			completion(result)
+			self.page += 1
+		}
 	}
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol ListAssemblyProtocol {
 
@@ -17,19 +17,34 @@ protocol ListAssemblyProtocol {
 }
 
 protocol ListViewProtocol: class {
-	
+
+	func showLoading()
+
+	func showEmptyList()
+
+	func showError(_ error:Error)
+
+	func show(_ data: [Recipe])
+
+	func showMore(_ data: [Recipe])
 }
 
 protocol ListPresenterProtocol: class {
 
 	var router: ListRouterProtocol! { get set }
 
-	func configureView()
+	func didScrollToLastCell()
+
+	func didLoadView()
+
+	func didTapElement(_ index:Int)
 }
 
 protocol ListInteractorProtocol: class {
 
 	func fetchList(_ completion: @escaping (Result<[Recipe], Error>) -> Void)
+
+	func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void)
 }
 
 protocol ListRouterProtocol: class {

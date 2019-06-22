@@ -29,6 +29,7 @@
 		71AFB37C22BE29910064077B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37B22BE29910064077B /* DetailViewController.swift */; };
 		71AFB38122BE2AE00064077B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38022BE2ADF0064077B /* R.generated.swift */; };
 		71AFB38422BE39E80064077B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38322BE39E80064077B /* Service.swift */; };
+		71AFB38622BE4F3C0064077B /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38522BE4F3C0064077B /* ListTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		71AFB37B22BE29910064077B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		71AFB38022BE2ADF0064077B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		71AFB38322BE39E80064077B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		71AFB38522BE4F3C0064077B /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
 		72E848B1D601A80D84A8B011 /* Pods-MTS-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTS-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-MTS-Test/Pods-MTS-Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 				71AFB35E22BC089C0064077B /* ListRouter.swift */,
 				71AFB36022BC08AC0064077B /* ListInteractor.swift */,
 				71AFB36822BC09190064077B /* ListViewController.swift */,
+				71AFB38522BE4F3C0064077B /* ListTableView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				71AFB35D22BC06760064077B /* ListPresenter.swift in Sources */,
 				71AFB37022BCEA880064077B /* Cache.swift in Sources */,
 				71A89AC422BC011500C0468C /* AppDelegate.swift in Sources */,
+				71AFB38622BE4F3C0064077B /* ListTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
