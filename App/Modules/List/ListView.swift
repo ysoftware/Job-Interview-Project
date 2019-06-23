@@ -62,6 +62,12 @@ final class ListViewController: UIViewController {
 	private func elementTapped(_ index:Int) {
 		presenter.didTapElement(index)
 	}
+
+	// MARK: - Appearance
+
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
 }
 
 extension ListViewController: ListViewProtocol {

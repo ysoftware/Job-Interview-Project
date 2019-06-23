@@ -38,6 +38,7 @@
 		71AFB39922BF72080064077B /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39822BF72080064077B /* DetailPresenter.swift */; };
 		71AFB39B22BF72130064077B /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39A22BF72130064077B /* DetailRouter.swift */; };
 		71AFB39D22BF72200064077B /* Detailnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39C22BF72200064077B /* Detailnteractor.swift */; };
+		71AFB39F22BFB9300064077B /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39E22BFB9300064077B /* StatusBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		71AFB39822BF72080064077B /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		71AFB39A22BF72130064077B /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		71AFB39C22BF72200064077B /* Detailnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detailnteractor.swift; sourceTree = "<group>"; };
+		71AFB39E22BFB9300064077B /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		72E848B1D601A80D84A8B011 /* Pods-MTS-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTS-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-MTS-Test/Pods-MTS-Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				71AFB37622BD6C510064077B /* List+Codable.swift */,
+				71AFB39E22BFB9300064077B /* StatusBar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				71AFB37C22BE29910064077B /* DetailView.swift in Sources */,
 				71AFB38122BE2AE00064077B /* R.generated.swift in Sources */,
 				71AFB39722BF71FC0064077B /* DetailConfigurator.swift in Sources */,
+				71AFB39F22BFB9300064077B /* StatusBar.swift in Sources */,
 				71AFB39922BF72080064077B /* DetailPresenter.swift in Sources */,
 				71AFB39D22BF72200064077B /* Detailnteractor.swift in Sources */,
 				71AFB36122BC08AC0064077B /* ListInteractor.swift in Sources */,
@@ -577,7 +581,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ysoftware.job-interview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -596,7 +600,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ysoftware.job-interview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

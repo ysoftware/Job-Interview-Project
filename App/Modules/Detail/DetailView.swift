@@ -28,7 +28,10 @@ final class DetailViewController: UIViewController {
 		presenter = DetailConfigurator().configure(with: self, recipeId: recipeId)
 		presenter.didLoadView()
 	}
-	
+
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
 }
 
 extension DetailViewController: DetailViewProtocol {
