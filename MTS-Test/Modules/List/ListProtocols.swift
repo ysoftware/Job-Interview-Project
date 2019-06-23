@@ -27,6 +27,8 @@ protocol ListPresenterProtocol: class {
 
 	var router: ListRouterProtocol! { get set }
 
+	var interactor: ListInteractorProtocol! { get set }
+
 	func didLoadView()
 
 	func didTapElement(_ index:Int)

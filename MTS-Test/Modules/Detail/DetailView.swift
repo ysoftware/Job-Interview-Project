@@ -12,3 +12,7 @@ final class DetailViewController: UIViewController {
 
 	
 }
+
+extension DetailViewController: DetailViewProtocol {
+
+}
