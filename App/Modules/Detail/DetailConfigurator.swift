@@ -10,11 +10,11 @@ import Swinject
 
 class DetailConfigurator {
 
-	func configure(with view: DetailViewController) -> DetailPresenterProtocol {
+	func configure(with view: DetailViewController, recipeId:String) -> DetailPresenterProtocol {
 		let container = Container()
 
 		container.register(DetailInteractorProtocol.self) { _ in
-			DetailInteractor()
+			DetailInteractor(recipeId: recipeId)
 		}
 
 		container.register(DetailRouterProtocol.self) { _ in
@@ -22,7 +22,7 @@ class DetailConfigurator {
 		}
 
 		container.register(DetailPresenterProtocol.self) { _ in
-			let presenter = DetailPresenter(with: view)
+			let presenter = DetailPresenter(with: view, recipeId: recipeId)
 			presenter.interactor = container.resolve(DetailInteractorProtocol.self)!
 			presenter.router = container.resolve(DetailRouterProtocol.self)!
 			return presenter

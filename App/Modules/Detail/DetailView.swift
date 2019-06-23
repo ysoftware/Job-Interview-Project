@@ -10,6 +10,24 @@ import UIKit
 
 final class DetailViewController: UIViewController {
 
+	// MARK: - Outlets
+
+	// MARK: - Properties
+
+	private var presenter:DetailPresenterProtocol!
+
+	// MARK: - Init
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+
+	}
+
+	func configureModule(with recipeId:String) {
+		presenter = DetailConfigurator().configure(with: self, recipeId: recipeId)
+		presenter.didLoadView()
+	}
 	
 }
 

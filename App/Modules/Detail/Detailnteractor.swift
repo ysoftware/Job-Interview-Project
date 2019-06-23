@@ -9,5 +9,10 @@
 import Foundation
 
 class DetailInteractor: DetailInteractorProtocol {
-	
+
+	private let recipeId:String
+
+	required init(recipeId:String) {
+		self.recipeId = recipeId
+	}
 }

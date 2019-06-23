@@ -14,16 +14,22 @@ class DetailPresenter: DetailPresenterProtocol {
 
 	private weak var view:DetailViewProtocol!
 
+	private let recipeId:String
+
 	var router: DetailRouterProtocol!
 
 	var interactor: DetailInteractorProtocol!
 
 	// MARK: - Init
 
-	required init(with view:DetailViewProtocol) {
+	required init(with view:DetailViewProtocol, recipeId:String) {
+		self.recipeId = recipeId
 		self.view = view
 	}
 
 	// MARK: - Methods
 
+	func didLoadView() {
+
+	}
 }

@@ -17,6 +17,8 @@ protocol DetailPresenterProtocol: class {
 	var router: DetailRouterProtocol! { get set }
 
 	var interactor: DetailInteractorProtocol! { get set }
+
+	func didLoadView()
 }
 
 protocol DetailInteractorProtocol: class {
