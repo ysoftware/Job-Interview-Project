@@ -16,6 +16,9 @@ final class DetailViewController: UIViewController {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var stepsLabel: UILabel!
 
+	@IBOutlet weak var errorLabel: UILabel!
+	@IBOutlet weak var errorView: UIView!
+
 	// MARK: - Properties
 
 	private var presenter:DetailPresenterProtocol!
@@ -44,10 +47,12 @@ final class DetailViewController: UIViewController {
 extension DetailViewController: DetailViewProtocol {
 
 	func showError(_ message:String) {
-		// to-do
+		errorView.isHidden = false
+		errorLabel.text = message
 	}
 
 	func setup(with recipe: Detail) {
+		errorView.isHidden = true
 		titleLabel.text = recipe.publisher
 		stepsLabel.text = recipe.ingredients.joined(separator: "\n")
 

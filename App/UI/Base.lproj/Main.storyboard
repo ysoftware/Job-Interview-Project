@@ -29,7 +29,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCH-VR-7AB">
                                         <rect key="frame" x="8" y="361" width="398" height="0.0"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsc-Mc-W2P">
@@ -55,7 +55,7 @@
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="tbe-dO-iNN">
                                         <rect key="frame" x="188.5" y="342.5" width="37" height="37"/>
-                                        <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -164,22 +164,45 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXX-jG-1en">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYv-il-fPQ">
+                                        <rect key="frame" x="20" y="448" width="374" height="0.0"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="zYv-il-fPQ" firstAttribute="centerX" secondItem="BXX-jG-1en" secondAttribute="centerX" id="1y0-86-cmx"/>
+                                    <constraint firstItem="zYv-il-fPQ" firstAttribute="centerY" secondItem="BXX-jG-1en" secondAttribute="centerY" id="3wK-5l-Sai"/>
+                                    <constraint firstItem="zYv-il-fPQ" firstAttribute="leading" secondItem="BXX-jG-1en" secondAttribute="leading" constant="20" id="kOW-2E-AC1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="BXX-jG-1en" firstAttribute="top" secondItem="94t-4L-8Cf" secondAttribute="top" id="8Je-Wt-2Jr"/>
                             <constraint firstItem="C3E-ce-tw5" firstAttribute="top" secondItem="auT-Me-V71" secondAttribute="top" id="Rg6-jG-T1h"/>
                             <constraint firstItem="C3E-ce-tw5" firstAttribute="leading" secondItem="auT-Me-V71" secondAttribute="leading" id="T5u-qI-qZa"/>
                             <constraint firstItem="xFc-Gk-shq" firstAttribute="leading" secondItem="auT-Me-V71" secondAttribute="leading" id="aPt-FL-ku4"/>
                             <constraint firstAttribute="bottom" secondItem="C3E-ce-tw5" secondAttribute="bottom" id="cvh-ho-Y2a"/>
                             <constraint firstAttribute="bottom" secondItem="xFc-Gk-shq" secondAttribute="bottom" id="hBJ-hV-WEl"/>
+                            <constraint firstAttribute="bottom" secondItem="BXX-jG-1en" secondAttribute="bottom" id="kfB-7E-OrI"/>
                             <constraint firstItem="xFc-Gk-shq" firstAttribute="trailing" secondItem="auT-Me-V71" secondAttribute="trailing" id="ndJ-jv-GGA"/>
                             <constraint firstItem="auT-Me-V71" firstAttribute="bottom" secondItem="Wnr-jV-JbP" secondAttribute="bottom" id="rUM-6S-wlZ"/>
+                            <constraint firstItem="BXX-jG-1en" firstAttribute="leading" secondItem="94t-4L-8Cf" secondAttribute="leading" id="s3f-Qu-Q8g"/>
                             <constraint firstItem="C3E-ce-tw5" firstAttribute="trailing" secondItem="auT-Me-V71" secondAttribute="trailing" id="ydh-L2-LXe"/>
+                            <constraint firstAttribute="trailing" secondItem="BXX-jG-1en" secondAttribute="trailing" id="zda-5B-zMc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="auT-Me-V71"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="S05-LZ-eYg"/>
                     <connections>
+                        <outlet property="errorLabel" destination="zYv-il-fPQ" id="Okz-FZ-92l"/>
+                        <outlet property="errorView" destination="BXX-jG-1en" id="8b1-Ps-4Ot"/>
                         <outlet property="recipeImageView" destination="C3E-ce-tw5" id="Q1g-2s-gXe"/>
                         <outlet property="stepsLabel" destination="fJy-gN-cOd" id="4O8-ju-QDy"/>
                         <outlet property="titleLabel" destination="pXG-K8-TnF" id="6Sj-Gy-hF2"/>
