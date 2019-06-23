@@ -34,6 +34,10 @@ protocol ListPresenterProtocol: class {
 	func didTapElement(_ index:Int)
 
 	func didTapTryAgain()
+
+	func didShowLastCell()
+	
+	func didRefresh()
 }
 
 protocol ListInteractorProtocol: class {

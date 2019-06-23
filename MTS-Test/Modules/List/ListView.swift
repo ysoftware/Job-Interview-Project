@@ -32,6 +32,15 @@ final class ListViewController: UIViewController {
 
 		tableDelegate.elementTapped = elementTapped
 		tableView.delegate = tableDelegate
+
+		// refresh control
+		let refreshControl = UIRefreshControl()
+		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+		tableView.refreshControl = refreshControl
+	}
+
+	@objc func refresh() {
+		presenter.didRefresh()
 	}
 
 	@IBAction func tryAgainTapped(_ sender: Any) {
@@ -69,6 +78,7 @@ extension ListViewController: ListViewProtocol {
 		tableView.isHidden = false
 		errorView.isHidden = true
 		loadingView.isHidden = true
+		tableView.refreshControl?.endRefreshing()
 	}
 
 	func setDataSource(_ dataSource: UITableViewDataSource) {

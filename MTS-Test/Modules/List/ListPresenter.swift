@@ -60,10 +60,17 @@ class ListPresenter: ListPresenterProtocol {
 		}
 	}
 
+	func didRefresh() {
+		reloadList()
+	}
+
+	func didShowLastCell() {
+		loadMore()
+	}
+
 	func didLoadView() {
-		let ds = ListDataSource(tableView: view.tableView)
+		let ds = ListDataSource(tableView: view.tableView, presenter: self)
 		dataSource = ds
-		ds.onLoadMore = loadMore
 		view.setDataSource(ds)
 		reloadList()
 	}

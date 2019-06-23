@@ -18,13 +18,13 @@ protocol ListDataSourceProtocol {
 
 class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 
+	private weak var presenter:ListPresenterProtocol!
 	private var array:[Recipe] = []
 	private var tableView: UITableView!
 
-	var onLoadMore:(()->Void)?
-
-	required init(tableView: UITableView) {
+	required init(tableView: UITableView, presenter:ListPresenterProtocol) {
 		super.init()
+		self.presenter = presenter
 		self.tableView = tableView
 		tableView.dataSource = self
 
@@ -55,7 +55,7 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 		}
 
 		if indexPath.row == array.count-1 {
-			onLoadMore?()
+			presenter.didShowLastCell()
 		}
 
 		return cell

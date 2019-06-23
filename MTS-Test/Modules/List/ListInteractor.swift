@@ -12,7 +12,8 @@ class ListInteractor: ListInteractorProtocol {
 
 	// MARK: - Properties
 
-	private var page = 0
+	private var page = 1
+	private var reachedEnd = false
 
 	// MARK: - Methods
 
@@ -20,14 +21,24 @@ class ListInteractor: ListInteractorProtocol {
 
 		// to-do check if already loading
 
-		page = 0
+		reachedEnd = false
+		page = 1
 		loadMore(completion)
 	}
 
 	func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
+		guard !reachedEnd else { return }
+
 		Service.api.getRecipes(page: page) { result in
 			completion(result.map { $0.recipes })
 			self.page += 1
+
+			if case let .success(response) = result, response.recipes.count < 30 {
+				self.reachedEnd = true
+			}
+			else if case .failure = result {
+				self.reachedEnd = true
+			}
 		}
 	}
 }
