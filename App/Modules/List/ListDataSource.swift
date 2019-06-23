@@ -11,6 +11,8 @@ import AlamofireImage
 
 protocol ListDataSourceProtocol {
 
+	func getRecipe(at index:Int) -> Recipe
+
 	func set(_ data: [Recipe])
 
 	func append(_ data:[Recipe])
@@ -62,6 +64,10 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 	}
 
 	// MARK: - Methods
+
+	func getRecipe(at index:Int) -> Recipe {
+		return array[index]
+	}
 
 	func set(_ data: [Recipe]) {
 		array = data

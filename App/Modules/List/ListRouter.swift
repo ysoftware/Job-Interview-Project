@@ -16,7 +16,7 @@ class ListRouter: ListRouterProtocol {
 		self.viewController = viewController
 	}
 
-	func presentDetail(at index: Int) {
+	func presentDetail(id:String) {
 		let detailVC = R.storyboard.main.detailViewController()!
 		viewController.show(detailVC, sender: self)
 	}

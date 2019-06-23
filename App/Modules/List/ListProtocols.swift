@@ -49,5 +49,5 @@ protocol ListInteractorProtocol: class {
 
 protocol ListRouterProtocol: class {
 
-	func presentDetail(at index: Int)
+	func presentDetail(id:String)
 }
