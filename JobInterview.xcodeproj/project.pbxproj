@@ -43,7 +43,7 @@
 /* Begin PBXFileReference section */
 		40B82E4E0D889A066AF4633B /* Pods-MTS-Test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTS-Test.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MTS-Test/Pods-MTS-Test.debug.xcconfig"; sourceTree = "<group>"; };
 		40CEBB770681489021882F3E /* Pods_MTS_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MTS_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71A89AC022BC011500C0468C /* MTS-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MTS-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71A89AC022BC011500C0468C /* JobInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A89AC322BC011500C0468C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71A89AC822BC011500C0468C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71A89ACA22BC011700C0468C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		71A89AB722BC011500C0468C = {
 			isa = PBXGroup;
 			children = (
-				71A89AC222BC011500C0468C /* MTS-Test */,
+				71A89AC222BC011500C0468C /* App */,
 				71A89AC122BC011500C0468C /* Products */,
 				543ABF76C05F7E5C1F47EAE9 /* Pods */,
 				DD60D4BA677CEC33FD4F3CD0 /* Frameworks */,
@@ -112,12 +112,12 @@
 		71A89AC122BC011500C0468C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71A89AC022BC011500C0468C /* MTS-Test.app */,
+				71A89AC022BC011500C0468C /* JobInterview.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		71A89AC222BC011500C0468C /* MTS-Test */ = {
+		71A89AC222BC011500C0468C /* App */ = {
 			isa = PBXGroup;
 			children = (
 				71AFB38C22BF61C80064077B /* UI */,
@@ -127,7 +127,7 @@
 				71AFB37522BD6C440064077B /* Extensions */,
 				71AFB36722BC08E10064077B /* Supporting Files */,
 			);
-			path = "MTS-Test";
+			path = App;
 			sourceTree = "<group>";
 		};
 		71AFB35522BC04170064077B /* Entity */ = {
@@ -254,9 +254,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		71A89ABF22BC011500C0468C /* MTS-Test */ = {
+		71A89ABF22BC011500C0468C /* JobInterview */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71A89AD222BC011700C0468C /* Build configuration list for PBXNativeTarget "MTS-Test" */;
+			buildConfigurationList = 71A89AD222BC011700C0468C /* Build configuration list for PBXNativeTarget "JobInterview" */;
 			buildPhases = (
 				632C8D60636264A9D73000BF /* [CP] Check Pods Manifest.lock */,
 				71AFB37D22BE2A890064077B /* Generate R.swift */,
@@ -269,9 +269,9 @@
 			);
 			dependencies = (
 			);
-			name = "MTS-Test";
+			name = JobInterview;
 			productName = "MTS-Test";
-			productReference = 71A89AC022BC011500C0468C /* MTS-Test.app */;
+			productReference = 71A89AC022BC011500C0468C /* JobInterview.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -289,7 +289,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 71A89ABB22BC011500C0468C /* Build configuration list for PBXProject "MTS-Test" */;
+			buildConfigurationList = 71A89ABB22BC011500C0468C /* Build configuration list for PBXProject "JobInterview" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -302,7 +302,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71A89ABF22BC011500C0468C /* MTS-Test */,
+				71A89ABF22BC011500C0468C /* JobInterview */,
 			);
 		};
 /* End PBXProject section */
@@ -569,12 +569,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S422Q897FZ;
-				INFOPLIST_FILE = "MTS-Test/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ysoftware.MTS-Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ysoftware.job-interview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -588,12 +588,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S422Q897FZ;
-				INFOPLIST_FILE = "MTS-Test/Supporting Files/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/App/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ysoftware.MTS-Test";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ysoftware.job-interview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -603,7 +603,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71A89ABB22BC011500C0468C /* Build configuration list for PBXProject "MTS-Test" */ = {
+		71A89ABB22BC011500C0468C /* Build configuration list for PBXProject "JobInterview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71A89AD022BC011700C0468C /* Debug */,
@@ -612,7 +612,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71A89AD222BC011700C0468C /* Build configuration list for PBXNativeTarget "MTS-Test" */ = {
+		71A89AD222BC011700C0468C /* Build configuration list for PBXNativeTarget "JobInterview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71A89AD322BC011700C0468C /* Debug */,
