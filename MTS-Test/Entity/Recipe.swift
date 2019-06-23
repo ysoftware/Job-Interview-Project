@@ -24,6 +24,8 @@ final class Recipe: Object, Decodable {
 
 	@objc dynamic var publisher = ""
 
+	@objc dynamic var title = ""
+
 	@objc dynamic var recipe_id = ""
 
 	@objc dynamic var image_url = ""

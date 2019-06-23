@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 protocol ListDataSourceProtocol {
 
@@ -24,6 +26,9 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 		super.init()
 		self.tableView = tableView
 		tableView.dataSource = self
+
+		tableView.register(UINib(resource: R.nib.listCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.listCell.identifier)
 	}
 
 	// MARK: - Data Source
@@ -35,13 +40,28 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+
+		let recipe = array[indexPath.row]
+		let cell = tableView.dequeueReusableCell(
+			withIdentifier: R.reuseIdentifier.listCell, for: indexPath)!
+
+		cell.titleLabel.text = recipe.title
+		cell.publisherLabel.text = recipe.publisher
+
+		cell.recipeImageView.image = nil
+		Alamofire.request(recipe.image_url).responseImage { response in
+			if let image = response.result.value {
+				cell.recipeImageView.image = image
+			}
+		}
+
+		return cell
 	}
 
 	// MARK: - Methods
 
 	func set(_ data: [Recipe]) {
-		array = []
+		array = data
 		tableView.reloadData()
 	}
 

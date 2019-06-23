@@ -1,5 +1,5 @@
 //
-//  ListAssembly.swift
+//  ListConfigurator.swift
 //  MTS-Test
 //
 //  Created by ysoftware on 22/06/2019.
@@ -13,8 +13,8 @@ class ListConfigurator {
 	func configure(with view:ListViewController) -> ListPresenterProtocol {
 		let container = Container()
 
-		container.register(ListInteractorProtocol.self) { _, presenter in
-			ListInteractor(presenter: presenter)
+		container.register(ListInteractorProtocol.self) { _ in
+			ListInteractor()
 		}
 
 		container.register(ListRouterProtocol.self) { _ in
@@ -23,7 +23,7 @@ class ListConfigurator {
 
 		container.register(ListPresenterProtocol.self) { _ in
 			let presenter = ListPresenter(with: view)
-			presenter.interactor = container.resolve(ListInteractorProtocol.self, argument: presenter)!
+			presenter.interactor = container.resolve(ListInteractorProtocol.self)!
 			presenter.router = container.resolve(ListRouterProtocol.self)!
 			return presenter
 		}

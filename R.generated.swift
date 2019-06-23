@@ -16,6 +16,32 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
+  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  struct nib {
+    /// Nib `ListCell`.
+    static let listCell = _R.nib._ListCell()
+    
+    /// `UINib(name: "ListCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.listCell) instead")
+    static func listCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.listCell)
+    }
+    
+    static func listCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListCell? {
+      return R.nib.listCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListCell
+    }
+    
+    fileprivate init() {}
+  }
+  
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 1 reuse identifiers.
+  struct reuseIdentifier {
+    /// Reuse identifier `ListCell`.
+    static let listCell: Rswift.ReuseIdentifier<ListCell> = Rswift.ReuseIdentifier(identifier: "ListCell")
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.storyboard` struct is generated, and contains static references to 2 storyboards.
   struct storyboard {
     /// Storyboard `LaunchScreen`.
@@ -52,6 +78,24 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     try storyboard.validate()
+  }
+  
+  struct nib {
+    struct _ListCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = ListCell
+      
+      let bundle = R.hostingBundle
+      let identifier = "ListCell"
+      let name = "ListCell"
+      
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> ListCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? ListCell
+      }
+      
+      fileprivate init() {}
+    }
+    
+    fileprivate init() {}
   }
   
   struct storyboard: Rswift.Validatable {

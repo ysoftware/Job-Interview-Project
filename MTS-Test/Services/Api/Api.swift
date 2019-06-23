@@ -16,12 +16,14 @@ protocol ApiProtocol {
 
 	var cache:CacheProtocol? { get set }
 
-	func getRecipes(page:Int, completion: @escaping (Result<[Recipe], Error>) -> Void)
+	func getRecipes(page:Int, completion: @escaping (Result<ListResponse, Error>) -> Void)
 
-	func getDetail(id:Int, completion: @escaping (Result<Detail, Error>) -> Void)
+	func getDetail(id:Int, completion: @escaping (Result<DetailResponse, Error>) -> Void)
 }
 
 class Api: ApiProtocol {
+
+	private let apiKey = "5a57fc7f803decb006237cd7abe3a22a"
 
 	internal var network:NetworkProtocol
 	internal var parser:ParserProtocol
@@ -49,12 +51,12 @@ class Api: ApiProtocol {
 	}
 
 	func getRecipes(page:Int,
-					completion: @escaping (Result<[Recipe], Error>) -> Void) {
-		get("recipes list url", completion)
+					completion: @escaping (Result<ListResponse, Error>) -> Void) {
+		get("https://www.food2fork.com/api/search?key=\(apiKey)", completion)
 	}
 
 	func getDetail(id:Int,
-				   completion: @escaping (Result<Detail, Error>) -> Void) {
-		get("recipe detail url", completion)
+				   completion: @escaping (Result<DetailResponse, Error>) -> Void) {
+		get("https://www.food2fork.com/api/get?key=\(apiKey)&rId=\(id)", completion)
 	}
 }

@@ -12,12 +12,16 @@ final class ListViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var errorView: UIView!
+	@IBOutlet weak var errorLabel: UILabel!
+
+	@IBOutlet weak var loadingView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 
 	// MARK: - Properties
 
 	private var presenter: ListPresenterProtocol!
-	private var tableDelegate:ListTableDelegate!
+	private let tableDelegate = ListTableDelegate()
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -26,8 +30,12 @@ final class ListViewController: UIViewController {
 		presenter = ListConfigurator().configure(with: self)
 		presenter.didLoadView()
 
-		tableView.delegate = tableDelegate
 		tableDelegate.elementTapped = elementTapped
+		tableView.delegate = tableDelegate
+	}
+
+	@IBAction func tryAgainTapped(_ sender: Any) {
+		presenter.didTapTryAgain()
 	}
 
 	private func elementTapped(_ index:Int) {
@@ -38,19 +46,29 @@ final class ListViewController: UIViewController {
 extension ListViewController: ListViewProtocol {
 
 	func showLoading() {
-
+		loadingView.isHidden = false
+		errorView.isHidden = true
+		tableView.isHidden = true
 	}
 
 	func showEmptyList() {
-
+		errorView.isHidden = false
+		errorLabel.text = "Нет рецептов"
+		loadingView.isHidden = true
+		tableView.isHidden = true
 	}
 
 	func showError(_ error: Error) {
-
+		errorView.isHidden = false
+		errorLabel.text = error.localizedDescription
+		loadingView.isHidden = true
+		tableView.isHidden = true
 	}
 
 	func showData() {
-		
+		tableView.isHidden = false
+		errorView.isHidden = true
+		loadingView.isHidden = true
 	}
 
 	func setDataSource(_ dataSource: UITableViewDataSource) {

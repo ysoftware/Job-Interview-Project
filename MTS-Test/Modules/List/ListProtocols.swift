@@ -32,6 +32,8 @@ protocol ListPresenterProtocol: class {
 	func didLoadView()
 
 	func didTapElement(_ index:Int)
+
+	func didTapTryAgain()
 }
 
 protocol ListInteractorProtocol: class {

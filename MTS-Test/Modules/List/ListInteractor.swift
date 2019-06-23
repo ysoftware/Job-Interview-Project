@@ -10,12 +10,6 @@ import Foundation
 
 class ListInteractor: ListInteractorProtocol {
 
-	weak var presenter:ListPresenterProtocol!
-
-	required init(presenter:ListPresenterProtocol) {
-		self.presenter = presenter
-	}
-
 	// MARK: - Properties
 
 	private var page = 0
@@ -32,7 +26,7 @@ class ListInteractor: ListInteractorProtocol {
 
 	func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
 		Service.api.getRecipes(page: page) { result in
-			completion(result)
+			completion(result.map { $0.recipes })
 			self.page += 1
 		}
 	}

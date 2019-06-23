@@ -28,11 +28,8 @@ class ListPresenter: ListPresenterProtocol {
 
 	// MARK: - Methods
 
-	func didLoadView() {
-
-		let ds = ListDataSource(tableView: view.tableView)
-		dataSource = ds
-		view.setDataSource(ds)
+	private func reloadList() {
+		view.showLoading()
 
 		interactor.fetchList { result in
 			do {
@@ -51,8 +48,14 @@ class ListPresenter: ListPresenterProtocol {
 		}
 	}
 
-	func didScrollToLastCell() {
+	func didLoadView() {
+		let ds = ListDataSource(tableView: view.tableView)
+		dataSource = ds
+		view.setDataSource(ds)
+		reloadList()
+	}
 
+	func didScrollToLastCell() {
 		interactor.loadMore { result in
 			do {
 				let data = try result.get()
@@ -66,6 +69,10 @@ class ListPresenter: ListPresenterProtocol {
 
 	func didTapElement(_ index: Int) {
 		router.presentDetail(at: index)
+	}
+
+	func didTapTryAgain() {
+		reloadList()
 	}
 
 	private func show(_ data: [Recipe]) {
