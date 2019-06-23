@@ -16,6 +16,8 @@ class DetailPresenter: DetailPresenterProtocol {
 
 	private let recipeId:String
 
+	private var recipe:Detail?
+
 	var router: DetailRouterProtocol!
 
 	var interactor: DetailInteractorProtocol!
@@ -29,7 +31,21 @@ class DetailPresenter: DetailPresenterProtocol {
 
 	// MARK: - Methods
 
-	func didLoadView() {
+	func openWebsiteTapped() {
+		if let url = recipe?.publisher_url {
+			router.openWebsite(url: url)
+		}
+	}
 
+	func didLoadView() {
+		interactor.loadRecipe { result in
+			switch result {
+			case .success(let recipe):
+				self.recipe = recipe
+				self.view.setup(with: recipe)
+			case .failure(let error):
+				self.view.showError(error.localizedDescription)
+			}
+		}
 	}
 }

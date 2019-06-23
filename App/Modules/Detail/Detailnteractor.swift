@@ -15,4 +15,12 @@ class DetailInteractor: DetailInteractorProtocol {
 	required init(recipeId:String) {
 		self.recipeId = recipeId
 	}
+
+	// MARK: - Methods
+
+	func loadRecipe(_ completion: @escaping (Result<Detail, Error>)->Void) {
+		Service.api.getDetail(id: recipeId) { result in
+			completion(result.map { $0.recipe })
+		}
+	}
 }

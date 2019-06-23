@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailRouter: DetailRouterProtocol {
 
@@ -14,5 +15,10 @@ class DetailRouter: DetailRouterProtocol {
 
 	required init(viewController: UIViewController) {
 		self.viewController = viewController
+	}
+
+	func openWebsite(url: String) {
+		let safari = SFSafariViewController(url: URL(string: url)!)
+		viewController.present(safari, animated: true)
 	}
 }

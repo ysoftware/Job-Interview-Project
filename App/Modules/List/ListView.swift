@@ -31,6 +31,7 @@ final class ListViewController: UIViewController {
 		configureModule()
 		configureTableView()
 		addRefreshControl()
+		presenter.didLoadView()
 	}
 
 	private func configureTableView() {
@@ -46,7 +47,6 @@ final class ListViewController: UIViewController {
 
 	private func configureModule() {
 		presenter = ListConfigurator().configure(with: self)
-		presenter.didLoadView()
 	}
 
 	// MARK: - Actions

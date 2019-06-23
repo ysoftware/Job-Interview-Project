@@ -76,7 +76,7 @@ class ListPresenter: ListPresenterProtocol {
 	}
 
 	func didTapElement(_ index: Int) {
-		router.presentDetail(id: dataSource.getRecipe(at: index).recipe_id)
+		router.presentDetail(for: dataSource.getRecipe(at: index))
 	}
 
 	func didTapTryAgain() {

@@ -49,5 +49,5 @@ protocol ListInteractorProtocol: class {
 
 protocol ListRouterProtocol: class {
 
-	func presentDetail(id:String)
+	func presentDetail(for recipe:Recipe)
 }

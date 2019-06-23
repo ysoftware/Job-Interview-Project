@@ -12,6 +12,10 @@ final class DetailViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var recipeImageView: UIImageView!
+	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var stepsLabel: UILabel!
+
 	// MARK: - Properties
 
 	private var presenter:DetailPresenterProtocol!
@@ -21,12 +25,15 @@ final class DetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-
+		presenter.didLoadView()
 	}
 
 	func configureModule(with recipeId:String) {
 		presenter = DetailConfigurator().configure(with: self, recipeId: recipeId)
-		presenter.didLoadView()
+	}
+
+	@IBAction func openWebsiteTapped(_ sender: Any) {
+		presenter.openWebsiteTapped()
 	}
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -36,4 +43,16 @@ final class DetailViewController: UIViewController {
 
 extension DetailViewController: DetailViewProtocol {
 
+	func showError(_ message:String) {
+		// to-do
+	}
+
+	func setup(with recipe: Detail) {
+		titleLabel.text = recipe.publisher
+		stepsLabel.text = recipe.ingredients.joined(separator: "\n")
+
+		if let url = URL(string: recipe.image_url) {
+			recipeImageView.af_setImage(withURL: url)
+		}
+	}
 }

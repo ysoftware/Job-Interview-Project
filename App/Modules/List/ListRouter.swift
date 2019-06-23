@@ -16,8 +16,10 @@ class ListRouter: ListRouterProtocol {
 		self.viewController = viewController
 	}
 
-	func presentDetail(id:String) {
+	func presentDetail(for recipe:Recipe) {
 		let detailVC = R.storyboard.main.detailViewController()!
+		detailVC.configureModule(with: recipe.recipe_id)
+		detailVC.title = recipe.title
 		viewController.show(detailVC, sender: self)
 	}
 }

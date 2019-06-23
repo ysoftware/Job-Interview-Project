@@ -6,10 +6,13 @@
 //  Copyright © 2019 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol DetailViewProtocol: class {
 
+	func setup(with recipe:Detail)
+
+	func showError(_ message:String)
 }
 
 protocol DetailPresenterProtocol: class {
@@ -19,12 +22,16 @@ protocol DetailPresenterProtocol: class {
 	var interactor: DetailInteractorProtocol! { get set }
 
 	func didLoadView()
+
+	func openWebsiteTapped()
 }
 
 protocol DetailInteractorProtocol: class {
 
+	func loadRecipe(_ completion: @escaping (Result<Detail, Error>)->Void)
 }
 
 protocol DetailRouterProtocol: class {
 
+	func openWebsite(url:String)
 }
