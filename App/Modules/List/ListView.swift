@@ -23,21 +23,33 @@ final class ListViewController: UIViewController {
 	private var presenter: ListPresenterProtocol!
 	private let tableDelegate = ListTableDelegate()
 
+	// MARK: - Init
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		// module entry point
-		presenter = ListConfigurator().configure(with: self)
-		presenter.didLoadView()
+		configureModule()
+		configureTableView()
+		addRefreshControl()
+	}
 
+	private func configureTableView() {
 		tableDelegate.elementTapped = elementTapped
 		tableView.delegate = tableDelegate
-
-		// refresh control
-		let refreshControl = UIRefreshControl()
-		refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
-		tableView.refreshControl = refreshControl
 	}
+
+	private func addRefreshControl() {
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl?.addTarget(self, action: #selector(refresh),
+											for: .valueChanged)
+	}
+
+	private func configureModule() {
+		presenter = ListConfigurator().configure(with: self)
+		presenter.didLoadView()
+	}
+
+	// MARK: - Actions
 
 	@objc func refresh() {
 		presenter.didRefresh()
