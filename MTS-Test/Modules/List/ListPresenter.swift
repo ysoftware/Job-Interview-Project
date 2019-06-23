@@ -48,14 +48,7 @@ class ListPresenter: ListPresenterProtocol {
 		}
 	}
 
-	func didLoadView() {
-		let ds = ListDataSource(tableView: view.tableView)
-		dataSource = ds
-		view.setDataSource(ds)
-		reloadList()
-	}
-
-	func didScrollToLastCell() {
+	private func loadMore() {
 		interactor.loadMore { result in
 			do {
 				let data = try result.get()
@@ -65,6 +58,14 @@ class ListPresenter: ListPresenterProtocol {
 				// show pagination error?
 			}
 		}
+	}
+
+	func didLoadView() {
+		let ds = ListDataSource(tableView: view.tableView)
+		dataSource = ds
+		ds.onLoadMore = loadMore
+		view.setDataSource(ds)
+		reloadList()
 	}
 
 	func didTapElement(_ index: Int) {

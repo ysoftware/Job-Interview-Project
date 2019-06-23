@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 import AlamofireImage
 
 protocol ListDataSourceProtocol {
@@ -21,6 +20,8 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 
 	private var array:[Recipe] = []
 	private var tableView: UITableView!
+
+	var onLoadMore:(()->Void)?
 
 	required init(tableView: UITableView) {
 		super.init()
@@ -49,10 +50,12 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 		cell.publisherLabel.text = recipe.publisher
 
 		cell.recipeImageView.image = nil
-		Alamofire.request(recipe.image_url).responseImage { response in
-			if let image = response.result.value {
-				cell.recipeImageView.image = image
-			}
+		if let url = URL(string: recipe.image_url) {
+			cell.recipeImageView.af_setImage(withURL: url)
+		}
+
+		if indexPath.row == array.count-1 {
+			onLoadMore?()
 		}
 
 		return cell

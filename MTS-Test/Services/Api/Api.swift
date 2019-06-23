@@ -52,7 +52,7 @@ class Api: ApiProtocol {
 
 	func getRecipes(page:Int,
 					completion: @escaping (Result<ListResponse, Error>) -> Void) {
-		get("https://www.food2fork.com/api/search?key=\(apiKey)", completion)
+		get("https://www.food2fork.com/api/search?key=\(apiKey)&page=\(page)", completion)
 	}
 
 	func getDetail(id:Int,

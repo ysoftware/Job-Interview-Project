@@ -27,8 +27,6 @@ protocol ListPresenterProtocol: class {
 
 	var router: ListRouterProtocol! { get set }
 
-	func didScrollToLastCell()
-
 	func didLoadView()
 
 	func didTapElement(_ index:Int)
