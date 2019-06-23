@@ -24,8 +24,8 @@ class ApiAssembly: ApiAssemblyProtocol {
 
 		container.register(ApiProtocol.self) { r in
 			Api(network: r.resolve(NetworkProtocol.self)!,
-				parser: r.resolve(ParserProtocol.self)!)
-//				cache: r.resolve(CacheProtocol.self)!) // to-do add cache
+				parser: r.resolve(ParserProtocol.self)!,
+				cache: r.resolve(CacheProtocol.self)!)
 		}
 
 		return container.resolve(ApiProtocol.self)!

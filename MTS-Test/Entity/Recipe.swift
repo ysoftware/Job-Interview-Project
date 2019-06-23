@@ -13,10 +13,10 @@ final class RecipeList: Object {
 
 	var recipes = List<Recipe>()
 
-	@objc dynamic var page = 0
+	@objc dynamic var request = ""
 
 	override static func primaryKey() -> String? {
-		return "page"
+		return "request"
 	}
 }
 

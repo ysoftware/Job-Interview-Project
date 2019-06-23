@@ -18,7 +18,7 @@ protocol ApiProtocol {
 
 	func getRecipes(page:Int, completion: @escaping (Result<ListResponse, Error>) -> Void)
 
-	func getDetail(id:Int, completion: @escaping (Result<DetailResponse, Error>) -> Void)
+	func getDetail(id:String, completion: @escaping (Result<DetailResponse, Error>) -> Void)
 }
 
 class Api: ApiProtocol {
@@ -52,11 +52,41 @@ class Api: ApiProtocol {
 
 	func getRecipes(page:Int,
 					completion: @escaping (Result<ListResponse, Error>) -> Void) {
-		get("https://www.food2fork.com/api/search?key=\(apiKey)&page=\(page)", completion)
+		let url = "http://ysoftware.ru/food/search\(page).json"
+//		let url = "https://www.food2fork.com/api/search?key=\(apiKey)&page=\(page)"
+
+		get(url) { (result:Result<ListResponse, Error>) in
+
+			if case .failure = result, let cached = self.cache?.retrieve(recipesFor: url) {
+				completion(.success(ListResponse(recipes: cached)))
+			}
+			else {
+				completion(result)
+
+				if let data = try? result.get() {
+					self.cache?.save(recipes: data.recipes, for: url)
+				}
+			}
+		}
 	}
 
-	func getDetail(id:Int,
+	func getDetail(id:String,
 				   completion: @escaping (Result<DetailResponse, Error>) -> Void) {
-		get("https://www.food2fork.com/api/get?key=\(apiKey)&rId=\(id)", completion)
+		let url = "http://ysoftware.ru/food/get\(id).json"
+//		let url = "https://www.food2fork.com/api/get?key=\(apiKey)&rId=\(id)"
+
+		get(url) { (result:Result<DetailResponse, Error>) in
+
+			if case .failure = result, let cached = self.cache?.retrieve(detailWithId: id) {
+				completion(.success(DetailResponse(recipe: cached)))
+			}
+			else {
+				completion(result)
+
+				if let data = try? result.get() {
+					self.cache?.save(detail: data.recipe)
+				}
+			}
+		}
 	}
 }

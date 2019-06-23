@@ -58,6 +58,7 @@ extension ListViewController: ListViewProtocol {
 		loadingView.isHidden = false
 		errorView.isHidden = true
 		tableView.isHidden = true
+		tableView.refreshControl?.endRefreshing()
 	}
 
 	func showEmptyList() {
@@ -65,6 +66,7 @@ extension ListViewController: ListViewProtocol {
 		errorLabel.text = "Нет рецептов"
 		loadingView.isHidden = true
 		tableView.isHidden = true
+		tableView.refreshControl?.endRefreshing()
 	}
 
 	func showError(_ error: Error) {
@@ -72,6 +74,7 @@ extension ListViewController: ListViewProtocol {
 		errorLabel.text = error.localizedDescription
 		loadingView.isHidden = true
 		tableView.isHidden = true
+		tableView.refreshControl?.endRefreshing()
 	}
 
 	func showData() {

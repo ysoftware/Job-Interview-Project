@@ -14,9 +14,9 @@ protocol CacheProtocol {
 
 	func retrieve(detailWithId id:String) -> Detail?
 
-	func save(recipes:[Recipe], on page:Int)
+	func save(recipes:[Recipe], for request:String)
 
-	func retrieve(recipesAt page:Int) -> [Recipe]?
+	func retrieve(recipesFor request:String) -> [Recipe]?
 }
 
 class RealmCache: CacheProtocol {
@@ -30,23 +30,21 @@ class RealmCache: CacheProtocol {
 	}
 
 	func retrieve(detailWithId id:String) -> Detail? {
-		return realm.objects(Detail.self)
-			.filter { $0.recipe_id == id }.first
+		return realm.objects(Detail.self).filter { $0.recipe_id == id }.first
 	}
 
-	func save(recipes:[Recipe], on page:Int) {
+	func save(recipes:[Recipe], for request:String) {
 		try! realm.write {
 			let list = RecipeList()
-			list.page = page
+			list.request = request
 			list.recipes.append(objectsIn: recipes)
 			realm.add(list, update: .all)
 		}
 	}
 
-	func retrieve(recipesAt page:Int) -> [Recipe]? {
-//		return realm.objects(RecipeList.self)
-//			.filter { $0.page == page }
-//			.first?.recipes
-		return nil
+	func retrieve(recipesFor request:String) -> [Recipe]? {
+		return realm.objects(RecipeList.self)
+			.filter { $0.request == request }
+			.first?.recipes.map { $0 }
 	}
 }
