@@ -18,7 +18,7 @@ class ApiAssembly: ApiAssemblyProtocol {
 	func assemble() -> ApiProtocol {
 		let container = Container()
 
-		container.register(NetworkProtocol.self) { _ in Network() }
+		container.register(NetworkProtocol.self) { _ in AlamofireNetwork() }
 		container.register(ParserProtocol.self) { _ in JSONParser() }
 		container.register(CacheProtocol.self) { _ in RealmCache() }
 

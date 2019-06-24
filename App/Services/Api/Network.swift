@@ -13,7 +13,7 @@ protocol NetworkProtocol {
 	func get(url:String, completion: @escaping (Swift.Result<Data, Error>)->Void)
 }
 
-class Network: NetworkProtocol {
+class AlamofireNetwork: NetworkProtocol {
 
 	func get(url: String, completion: @escaping (Swift.Result<Data, Error>) -> Void) {
 		Alamofire.request(url).responseData { response in

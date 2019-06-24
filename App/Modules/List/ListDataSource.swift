@@ -20,9 +20,15 @@ protocol ListDataSourceProtocol {
 
 class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 
+	// MARK: - Properties
+
 	private weak var presenter:ListPresenterProtocol!
+
 	private var array:[Recipe] = []
+
 	private var tableView: UITableView!
+
+	// MARK: - Init
 
 	required init(tableView: UITableView, presenter:ListPresenterProtocol) {
 		super.init()

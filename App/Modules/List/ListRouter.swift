@@ -10,7 +10,7 @@ import UIKit
 
 class ListRouter: ListRouterProtocol {
 
-	weak var viewController:UIViewController!
+	private weak var viewController:UIViewController!
 
 	required init(viewController: UIViewController) {
 		self.viewController = viewController
