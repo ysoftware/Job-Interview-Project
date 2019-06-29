@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct Service {
+class Services {
 
-	private init() {}
+	static var shared: Services {
+		return AppDelegate.instance.services
+	}
 
-	static let api:ApiProtocol = {
+	let api:ApiProtocol = {
 
 		let assembly:ApiAssemblyProtocol = ApiAssembly()
 		return assembly.assemble()

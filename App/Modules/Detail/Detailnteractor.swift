@@ -19,7 +19,7 @@ class DetailInteractor: DetailInteractorProtocol {
 	// MARK: - Methods
 
 	func loadRecipe(_ completion: @escaping (Result<Detail, Error>)->Void) {
-		Service.api.getDetail(id: recipeId) { result in
+		Services.shared.api.getDetail(id: recipeId) { result in
 			completion(result.map { $0.recipe })
 		}
 	}

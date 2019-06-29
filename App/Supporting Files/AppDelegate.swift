@@ -14,8 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
+	let services = Services()
+
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		return true
+	}
+}
+
+extension AppDelegate {
+
+	static var instance: AppDelegate {
+		return UIApplication.shared.delegate as! AppDelegate
 	}
 }

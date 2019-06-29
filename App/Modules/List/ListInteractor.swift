@@ -29,7 +29,7 @@ class ListInteractor: ListInteractorProtocol {
 	func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
 		guard !reachedEnd else { return }
 
-		Service.api.getRecipes(page: page) { result in
+		Services.shared.api.getRecipes(page: page) { result in
 			completion(result.map { $0.recipes })
 			self.page += 1
 
