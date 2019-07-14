@@ -41,6 +41,7 @@ class ListAssembly: Assembly {
 			ListInteractor()
 		}.initCompleted { resolver, instance in
 			instance.output = resolver.resolve(ListInteractorOutput.self)
+			instance.apiService = resolver.resolve(ApiProtocol.self)
 		}.implements(ListInteractorInput.self)
 	}
 

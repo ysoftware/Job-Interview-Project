@@ -11,14 +11,15 @@ import Foundation
 class DetailInteractor {
 
 	var output: DetailInteractorOutput!
+
+	var apiService: ApiProtocol!
 }
 
 extension DetailInteractor: DetailInteractorInput {
 
 	func loadRecipe(_ recipeId:String) {
-		let api = DIAssembler.resolver.resolve(ApiProtocol.self)!
 
-		api.getDetail(id: recipeId) { result in
+		apiService.getDetail(id: recipeId) { result in
 			self.output.didLoadRecipe(result.map { $0.recipe })
 		}
 	}

@@ -43,6 +43,7 @@ class DetailAssembly: Assembly {
 			DetailInteractor()
 		}.initCompleted { resolver, instance in
 			instance.output = resolver.resolve(DetailInteractorOutput.self)
+			instance.apiService = resolver.resolve(ApiProtocol.self)
 		}.implements(DetailInteractorInput.self)
 	}
 
