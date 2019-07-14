@@ -8,55 +8,65 @@
 
 import UIKit
 
-class ListPresenter: ListPresenterProtocol {
+class ListPresenter {
 
 	// MARK: - Properties
 
 	private var dataSource:ListDataSourceProtocol!
 
-	weak var view:ListViewProtocol!
+	weak var view:ListViewInput!
 
-	var router: ListRouterProtocol!
+	var router: ListRouterInput!
 
-	var interactor: ListInteractorProtocol!
+	var interactor: ListInteractorInput!
 
 	private var selectedRecipe:Recipe?
+}
 
-	// MARK: - Methods
+extension ListPresenter: ListInteractorOutput {
 
-	private func reloadList() {
-		view.showLoading()
-
-		interactor.fetchList { result in
-			do {
-				let data = try result.get()
-				if data.isEmpty {
-					self.view.showEmptyList()
-				}
-				else {
-					self.view.showData()
-					self.dataSource.set(data)
-				}
+	func didFetchList(_ result: Result<[Recipe], Error>) {
+		do {
+			let data = try result.get()
+			if data.isEmpty {
+				self.view.showEmptyList()
 			}
-			catch {
-				self.view.showError(error)
+			else {
+				self.view.showData()
+				self.dataSource.set(data)
 			}
+		}
+		catch {
+			self.view.showError(error)
 		}
 	}
 
-	private func loadMore() {
-		interactor.loadMore { result in
-			do {
-				let data = try result.get()
-				self.dataSource.append(data)
-			}
-			catch {
-				// show pagination error?
-			}
+	func didloadMore(_ result: Result<[Recipe], Error>) {
+		do {
+			let data = try result.get()
+			self.dataSource.append(data)
+		}
+		catch {
+			// show pagination error?
 		}
 	}
+}
 
-	func didRefresh() {
+extension ListPresenter: ListViewOutput {
+
+	func didTriggerViewReadyEvent() {
+		let ds = ListDataSource(tableView: view.tableView, presenter: self)
+		dataSource = ds
+		view.setDataSource(ds)
+		reloadList()
+	}
+
+	func didTriggerElement(_ index: Int) {
+		selectedRecipe = dataSource.getRecipe(at: index)
+		router.presentDetail(with: self)
+	}
+
+	func didTriggerTryAgain() {
 		reloadList()
 	}
 
@@ -64,20 +74,17 @@ class ListPresenter: ListPresenterProtocol {
 		loadMore()
 	}
 
-	func didLoadView() {
-		let ds = ListDataSource(tableView: view.tableView, presenter: self)
-		dataSource = ds
-		view.setDataSource(ds)
+	func didTriggerRefresh() {
 		reloadList()
 	}
 
-	func didTapElement(_ index: Int) {
-		selectedRecipe = dataSource.getRecipe(at: index)
-		router.presentDetail(with: self)
+	private func reloadList() {
+		view.showLoading()
+		interactor.fetchList()
 	}
 
-	func didTapTryAgain() {
-		reloadList()
+	private func loadMore() {
+		interactor.loadMore()
 	}
 
 	private func show(_ data: [Recipe]) {

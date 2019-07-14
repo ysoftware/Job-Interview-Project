@@ -8,25 +8,33 @@
 
 import Foundation
 
-class ListInteractor: ListInteractorProtocol {
+class ListInteractor {
 
 	// MARK: - Properties
 
+	var output: ListInteractorOutput!
+
 	private var page = 1
+
 	private var reachedEnd = false
+}
 
-	// MARK: - Methods
+extension ListInteractor: ListInteractorInput {
 
-	func fetchList(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
+	func fetchList() {
 
 		// to-do check if already loading
 
 		reachedEnd = false
 		page = 1
-		loadMore(completion)
+		loadMore(self.output.didFetchList)
 	}
 
-	func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
+	func loadMore() {
+		loadMore(self.output.didloadMore)
+	}
+
+	private func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
 		guard !reachedEnd else { return }
 
 		Services.shared.api.getRecipes(page: page) { result in

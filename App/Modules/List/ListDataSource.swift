@@ -22,7 +22,7 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 
 	// MARK: - Properties
 
-	private weak var presenter:ListPresenterProtocol!
+	private weak var presenter:ListPresenter!
 
 	private var array:[Recipe] = []
 
@@ -30,9 +30,8 @@ class ListDataSource: NSObject, UITableViewDataSource, ListDataSourceProtocol {
 
 	// MARK: - Init
 
-	required init(tableView: UITableView, presenter:ListPresenterProtocol) {
+	required init(tableView: UITableView, presenter:ListPresenter) {
 		super.init()
-		self.presenter = presenter
 		self.tableView = tableView
 		tableView.dataSource = self
 

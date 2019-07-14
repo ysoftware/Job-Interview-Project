@@ -20,7 +20,10 @@ final class ListViewController: UIViewController {
 
 	// MARK: - Properties
 
-	var presenter: ListPresenterProtocol!
+	var presenter: ListPresenter!
+
+	var output: ListViewOutput!
+
 	private let tableDelegate = ListTableDelegate()
 
 	// MARK: - Init
@@ -30,7 +33,7 @@ final class ListViewController: UIViewController {
 
 		configureTableView()
 		addRefreshControl()
-		presenter.didLoadView()
+		presenter.didTriggerViewReadyEvent()
 	}
 
 	private func configureTableView() {
@@ -47,15 +50,15 @@ final class ListViewController: UIViewController {
 	// MARK: - Actions
 
 	@objc func refresh() {
-		presenter.didRefresh()
+		presenter.didTriggerRefresh()
 	}
 
 	@IBAction func tryAgainTapped(_ sender: Any) {
-		presenter.didTapTryAgain()
+		presenter.didTriggerTryAgain()
 	}
 
 	private func elementTapped(_ index:Int) {
-		presenter.didTapElement(index)
+		presenter.didTriggerElement(index)
 	}
 
 	// MARK: - Appearance
@@ -65,7 +68,7 @@ final class ListViewController: UIViewController {
 	}
 }
 
-extension ListViewController: ListViewProtocol {
+extension ListViewController: ListViewInput {
 
 	func showLoading() {
 		loadingView.isHidden = false

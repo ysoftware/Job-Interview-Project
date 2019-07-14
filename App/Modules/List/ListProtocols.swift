@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ListViewProtocol: class {
+protocol ListViewInput: class {
 
 	var tableView:UITableView! { get }
 
@@ -23,31 +23,34 @@ protocol ListViewProtocol: class {
 	func setDataSource(_ dataSource: UITableViewDataSource)
 }
 
-protocol ListPresenterProtocol: class {
+protocol ListViewOutput: class {
 
-	var router: ListRouterProtocol! { get set }
+	func didTriggerViewReadyEvent()
 
-	var interactor: ListInteractorProtocol! { get set }
+	func didTriggerElement(_ index:Int)
 
-	func didLoadView()
-
-	func didTapElement(_ index:Int)
-
-	func didTapTryAgain()
+	func didTriggerTryAgain()
 
 	func didShowLastCell()
 	
-	func didRefresh()
+	func didTriggerRefresh()
 }
 
-protocol ListInteractorProtocol: class {
+protocol ListInteractorInput: class {
 
-	func fetchList(_ completion: @escaping (Result<[Recipe], Error>) -> Void)
+	func fetchList()
 
-	func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void)
+	func loadMore()
 }
 
-protocol ListRouterProtocol: class {
+protocol ListInteractorOutput: class {
+
+	func didFetchList(_ result: Result<[Recipe], Error>)
+
+	func didloadMore(_ result: Result<[Recipe], Error>)
+}
+
+protocol ListRouterInput: class {
 
 	func presentDetail(with input:DetailModuleInput)
 }

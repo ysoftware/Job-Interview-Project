@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ListRouter: ListRouterProtocol {
+class ListRouter {
 
 	weak var transitionHandler:UIViewController!
+}
+
+extension ListRouter: ListRouterInput {
 
 	func presentDetail(with input:DetailModuleInput) {
 		let detailVC = AppDelegate.instance.container.resolve(DetailViewController.self)!
