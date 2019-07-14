@@ -7,10 +7,6 @@
 //
 
 import UIKit
-import Swinject
-
-// shared container
-let container = Container()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,20 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-		registerModules()
-
 		let root = window!.rootViewController as! UINavigationController
-		root.viewControllers = [container.resolve(ListViewController.self)!]
+		root.viewControllers = [DIAssembler.resolver.resolve(ListViewController.self)!]
 
 		return true
-	}
-}
-
-extension AppDelegate {
-
-	func registerModules() {
-		ListAssembly().assemble(container: container)
-		DetailAssembly().assemble(container: container)
-		ApiAssembly().assemble(container: container)
 	}
 }

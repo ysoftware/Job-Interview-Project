@@ -38,6 +38,7 @@
 		71AFB39B22BF72130064077B /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39A22BF72130064077B /* DetailRouter.swift */; };
 		71AFB39D22BF72200064077B /* Detailnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39C22BF72200064077B /* Detailnteractor.swift */; };
 		71AFB39F22BFB9300064077B /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39E22BFB9300064077B /* StatusBar.swift */; };
+		71F74B5122DB9F6F009B9C93 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F74B5022DB9F6F009B9C93 /* Assembler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		71AFB39A22BF72130064077B /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		71AFB39C22BF72200064077B /* Detailnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detailnteractor.swift; sourceTree = "<group>"; };
 		71AFB39E22BFB9300064077B /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		71F74B5022DB9F6F009B9C93 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		72E848B1D601A80D84A8B011 /* Pods-MTS-Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MTS-Test.release.xcconfig"; path = "Pods/Target Support Files/Pods-MTS-Test/Pods-MTS-Test.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				71AFB38022BE2ADF0064077B /* R.generated.swift */,
+				71F74B5022DB9F6F009B9C93 /* Assembler.swift */,
 				71A89AC322BC011500C0468C /* AppDelegate.swift */,
 				71A89ACA22BC011700C0468C /* Assets.xcassets */,
 				71A89ACC22BC011700C0468C /* LaunchScreen.storyboard */,
@@ -399,6 +402,7 @@
 				71AFB35F22BC089C0064077B /* ListRouter.swift in Sources */,
 				71AFB35722BC04380064077B /* Recipe.swift in Sources */,
 				71AFB39122BF61E80064077B /* ListCell.swift in Sources */,
+				71F74B5122DB9F6F009B9C93 /* Assembler.swift in Sources */,
 				71AFB36322BC08C60064077B /* Network.swift in Sources */,
 				71AFB37722BD6C510064077B /* List+Codable.swift in Sources */,
 				71AFB36B22BC09480064077B /* ListProtocols.swift in Sources */,
