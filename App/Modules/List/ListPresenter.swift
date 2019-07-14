@@ -79,7 +79,6 @@ extension ListPresenter: ListViewOutput {
 	}
 
 	private func reloadList() {
-		view.showLoading()
 		interactor.fetchList()
 	}
 

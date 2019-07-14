@@ -32,6 +32,7 @@ final class ListViewController: UIViewController {
 		configureTableView()
 		addRefreshControl()
 		output.didTriggerViewReadyEvent()
+		showLoading()
 	}
 
 	private func configureTableView() {
@@ -72,30 +73,29 @@ extension ListViewController: ListViewInput {
 		loadingView.isHidden = false
 		errorView.isHidden = true
 		tableView.isHidden = true
-		tableView.refreshControl?.endRefreshing()
 	}
 
 	func showEmptyList() {
+		tableView.refreshControl?.endRefreshing()
 		errorView.isHidden = false
 		errorLabel.text = "Нет рецептов"
 		loadingView.isHidden = true
 		tableView.isHidden = true
-		tableView.refreshControl?.endRefreshing()
 	}
 
 	func showError(_ error: Error) {
+		tableView.refreshControl?.endRefreshing()
 		errorView.isHidden = false
 		errorLabel.text = error.localizedDescription
 		loadingView.isHidden = true
 		tableView.isHidden = true
-		tableView.refreshControl?.endRefreshing()
 	}
 
 	func showData() {
+		tableView.refreshControl?.endRefreshing()
 		tableView.isHidden = false
 		errorView.isHidden = true
 		loadingView.isHidden = true
-		tableView.refreshControl?.endRefreshing()
 	}
 
 	func setDataSource(_ dataSource: UITableViewDataSource) {
