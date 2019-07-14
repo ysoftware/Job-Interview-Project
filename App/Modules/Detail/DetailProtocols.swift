@@ -13,30 +13,31 @@ protocol DetailModuleInput {
 	var recipeId:String { get }
 }
 
-protocol DetailViewProtocol: class {
+protocol DetailViewOutput: class {
+
+	func didTriggerViewReadyEvent()
+
+	func didTriggerOpenWebite()
+}
+
+protocol DetailViewInput: class {
 
 	func setup(with recipe:Detail)
 
 	func showError(_ message:String)
 }
 
-protocol DetailPresenterProtocol: class {
+protocol DetailInteractorInput: class {
 
-	var router: DetailRouterProtocol! { get set }
-
-	var interactor: DetailInteractorProtocol! { get set }
-
-	func didLoadView()
-
-	func openWebsiteTapped()
+	func loadRecipe(_ recipeId:String)
 }
 
-protocol DetailInteractorProtocol: class {
+protocol DetailInteractorOutput: class {
 
-	func loadRecipe(_ completion: @escaping (Result<Detail, Error>)->Void)
+	func didLoadRecipe(_ result: Result<Detail, Error>)
 }
 
-protocol DetailRouterProtocol: class {
+protocol DetailRouterInput: class {
 
 	func openWebsite(url:String)
 }

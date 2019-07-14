@@ -8,28 +8,34 @@
 
 import Swinject
 
-class ListAssembly {
+class ListAssembly: Assembly {
 
-	func assemble() -> ListViewProtocol {
-		let viewController = R.storyboard.main.listViewController()!
-		let container = Container()
+	func assemble(container: Container) {
+		container.register(ListViewController.self) { _ in
+			R.storyboard.main.listViewController()!
+		}.initCompleted { resolver, instance in
+			instance.presenter = resolver.resolve(ListPresenterProtocol.self)
+		}.implements(ListViewProtocol.self)
 
 		container.register(ListInteractorProtocol.self) { _ in
 			ListInteractor()
-		}
+		}.initCompleted { resolver, instance in
+			// to-do: move to input/output system
+		}.implements(ListInteractorProtocol.self)
 
-		container.register(ListRouterProtocol.self) { _ in
-			ListRouter(viewController: viewController)
-		}
+		container.register(ListRouter.self) { _ in
+			ListRouter()
+		}.initCompleted { resolver, instance in
+			instance.transitionHandler = resolver.resolve(ListViewController.self)
+		}.implements(ListRouterProtocol.self)
 
-		container.register(ListPresenterProtocol.self) { _ in
-			let presenter = ListPresenter(with: viewController)
-			presenter.interactor = container.resolve(ListInteractorProtocol.self)!
-			presenter.router = container.resolve(ListRouterProtocol.self)!
-			return presenter
-		}
-
-		viewController.presenter = container.resolve(ListPresenterProtocol.self)!
-		return viewController
+		container.register(ListPresenter.self) { _ in
+			ListPresenter()
+		}.initCompleted { resolver, instance in
+			instance.view = resolver.resolve(ListViewController.self)
+			instance.interactor = container.resolve(ListInteractorProtocol.self)
+			instance.router = container.resolve(ListRouterProtocol.self)
+		}.implements(ListPresenterProtocol.self,
+					 DetailModuleInput.self)
 	}
 }

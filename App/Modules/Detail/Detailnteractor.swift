@@ -8,19 +8,16 @@
 
 import Foundation
 
-class DetailInteractor: DetailInteractorProtocol {
+class DetailInteractor {
 
-	private let recipeId:String
+	var output: DetailInteractorOutput!
+}
 
-	required init(with input:DetailModuleInput) {
-		self.recipeId = input.recipeId
-	}
+extension DetailInteractor: DetailInteractorInput {
 
-	// MARK: - Methods
-
-	func loadRecipe(_ completion: @escaping (Result<Detail, Error>)->Void) {
+	func loadRecipe(_ recipeId:String) {
 		Services.shared.api.getDetail(id: recipeId) { result in
-			completion(result.map { $0.recipe })
+			self.output.didLoadRecipe(result.map { $0.recipe })
 		}
 	}
 }

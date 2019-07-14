@@ -9,16 +9,15 @@
 import UIKit
 import SafariServices
 
-class DetailRouter: DetailRouterProtocol {
+class DetailRouter {
 
-	private weak var viewController:UIViewController!
+	weak var transitionHandler:UIViewController!
+}
 
-	required init(viewController: UIViewController) {
-		self.viewController = viewController
-	}
+extension DetailRouter: DetailRouterInput {
 
 	func openWebsite(url: String) {
 		let safari = SFSafariViewController(url: URL(string: url)!)
-		viewController.present(safari, animated: true)
+		transitionHandler.present(safari, animated: true)
 	}
 }

@@ -10,14 +10,10 @@ import UIKit
 
 class ListRouter: ListRouterProtocol {
 
-	private weak var viewController:UIViewController!
-
-	required init(viewController: UIViewController) {
-		self.viewController = viewController
-	}
+	weak var transitionHandler:UIViewController!
 
 	func presentDetail(with input:DetailModuleInput) {
-		let detailVC = DetailAssembly().assemble(with: input) as! UIViewController
-		viewController.show(detailVC, sender: self)
+		let detailVC = AppDelegate.instance.container.resolve(DetailViewController.self)!
+		transitionHandler.show(detailVC, sender: self)
 	}
 }

@@ -14,19 +14,13 @@ class ListPresenter: ListPresenterProtocol {
 
 	private var dataSource:ListDataSourceProtocol!
 
-	private weak var view:ListViewProtocol!
+	weak var view:ListViewProtocol!
 
 	var router: ListRouterProtocol!
 
 	var interactor: ListInteractorProtocol!
 
-	var selectedRecipe:Recipe?
-
-	// MARK: - Init
-
-	required init(with view:ListViewProtocol) {
-		self.view = view
-	}
+	private var selectedRecipe:Recipe?
 
 	// MARK: - Methods
 

@@ -21,7 +21,8 @@ final class DetailViewController: UIViewController {
 
 	// MARK: - Properties
 
-	var presenter:DetailPresenterProtocol!
+	var output:DetailViewOutput!
+
 	private var input:DetailModuleInput!
 
 	// MARK: - Init
@@ -29,11 +30,11 @@ final class DetailViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		presenter.didLoadView()
+		output.didTriggerViewReadyEvent()
 	}
 	
 	@IBAction func openWebsiteTapped(_ sender: Any) {
-		presenter.openWebsiteTapped()
+		output.didTriggerOpenWebite()
 	}
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,7 +42,7 @@ final class DetailViewController: UIViewController {
 	}
 }
 
-extension DetailViewController: DetailViewProtocol {
+extension DetailViewController: DetailViewInput {
 
 	func showError(_ message:String) {
 		errorView.isHidden = false

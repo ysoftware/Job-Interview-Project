@@ -8,28 +8,51 @@
 
 import Swinject
 
-class DetailAssembly {
+class DetailAssembly: Assembly {
 
-	func assemble(with input:DetailModuleInput) -> DetailViewProtocol {
-		let viewController = R.storyboard.main.detailViewController()!
-		let container = Container()
+	func assemble(container: Container) {
+		registerView(in: container)
+		registerPresenter(in: container)
+		registerInteractor(in: container)
+		registerRouter(in: container)
+	}
 
-		container.register(DetailInteractorProtocol.self) { _ in
-			DetailInteractor(with: input)
-		}
+	private func registerView(in container: Container) {
+		container.register(DetailViewController.self) { _ in
+			R.storyboard.main.detailViewController()!
+		}.initCompleted { resolver, instance in
+			instance.output = resolver.resolve(DetailViewOutput.self)
+		}.implements(DetailViewInput.self)
+	}
 
-		container.register(DetailRouterProtocol.self) { _ in
-			DetailRouter(viewController: viewController)
-		}
+	private func registerPresenter(in container: Container) {
+		container.register(DetailPresenter.self) { container in
+			DetailPresenter()
+		}.initCompleted { resolver, instance in
+			// to-do: move to input/output system
+			instance.moduleInput = resolver.resolve(ListPresenter.self)!
+			
+			instance.router = resolver.resolve(DetailRouterInput.self)
+			instance.view = resolver.resolve(DetailViewInput.self)
+			instance.interactor = resolver.resolve(DetailInteractorInput.self)
+		}.implements(DetailViewOutput.self,
+					 DetailInteractorOutput.self,
+					 DetailModuleInput.self)
+	}
 
-		container.register(DetailPresenterProtocol.self) { _ in
-			let presenter = DetailPresenter(with: viewController, input: input)
-			presenter.interactor = container.resolve(DetailInteractorProtocol.self)!
-			presenter.router = container.resolve(DetailRouterProtocol.self)!
-			return presenter
-		}
+	private func registerInteractor(in container: Container) {
+		container.register(DetailInteractor.self) { _ in
+			DetailInteractor()
+		}.initCompleted { resolver, instance in
+			instance.output = resolver.resolve(DetailInteractorOutput.self)
+		}.implements(DetailInteractorInput.self)
+	}
 
-		viewController.presenter = container.resolve(DetailPresenterProtocol.self)!
-		return viewController
+	private func registerRouter(in container: Container) {
+		container.register(DetailRouter.self) { _ in
+			DetailRouter()
+		}.initCompleted { resolver, instance in
+			instance.transitionHandler = resolver.resolve(DetailViewController.self)
+		}.implements(DetailRouterInput.self)
 	}
 }
