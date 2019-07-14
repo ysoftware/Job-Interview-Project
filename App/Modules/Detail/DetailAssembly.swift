@@ -29,9 +29,7 @@ class DetailAssembly: Assembly {
 		container.register(DetailPresenter.self) { container in
 			DetailPresenter()
 		}.initCompleted { resolver, instance in
-			// to-do: move to input/output system
-			instance.moduleInput = resolver.resolve(ListPresenter.self)!
-			
+			instance.moduleInput = resolver.resolve(ListPresenter.self)
 			instance.router = resolver.resolve(DetailRouterInput.self)
 			instance.view = resolver.resolve(DetailViewInput.self)
 			instance.interactor = resolver.resolve(DetailInteractorInput.self)

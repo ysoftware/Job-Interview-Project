@@ -20,8 +20,6 @@ final class ListViewController: UIViewController {
 
 	// MARK: - Properties
 
-	var presenter: ListPresenter!
-
 	var output: ListViewOutput!
 
 	private let tableDelegate = ListTableDelegate()
@@ -33,7 +31,7 @@ final class ListViewController: UIViewController {
 
 		configureTableView()
 		addRefreshControl()
-		presenter.didTriggerViewReadyEvent()
+		output.didTriggerViewReadyEvent()
 	}
 
 	private func configureTableView() {
@@ -50,15 +48,15 @@ final class ListViewController: UIViewController {
 	// MARK: - Actions
 
 	@objc func refresh() {
-		presenter.didTriggerRefresh()
+		output.didTriggerRefresh()
 	}
 
 	@IBAction func tryAgainTapped(_ sender: Any) {
-		presenter.didTriggerTryAgain()
+		output.didTriggerTryAgain()
 	}
 
 	private func elementTapped(_ index:Int) {
-		presenter.didTriggerElement(index)
+		output.didTriggerElement(index)
 	}
 
 	// MARK: - Appearance

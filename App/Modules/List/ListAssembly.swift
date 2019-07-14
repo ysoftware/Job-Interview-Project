@@ -39,7 +39,10 @@ class ListAssembly: Assembly {
 	private func registerInteractor(in container: Container) {
 		container.register(ListInteractor.self) { _ in
 			ListInteractor()
-		}.implements(ListInteractorInput.self)
+		}.initCompleted { resolver, instance in
+			instance.output = resolver.resolve(ListInteractorOutput.self)
+		}
+		.implements(ListInteractorInput.self)
 	}
 
 	private func registerRouter(in container: Container) {
