@@ -8,16 +8,9 @@
 
 import Swinject
 
-protocol ApiAssemblyProtocol {
+class ApiAssembly: Assembly {
 
-	func assemble() -> ApiProtocol
-}
-
-class ApiAssembly: ApiAssemblyProtocol {
-
-	func assemble() -> ApiProtocol {
-		let container = Container()
-
+	func assemble(container: Container) {
 		container.register(NetworkProtocol.self) { _ in AlamofireNetwork() }
 		container.register(ParserProtocol.self) { _ in JSONParser() }
 		container.register(CacheProtocol.self) { _ in RealmCache() }
@@ -27,7 +20,5 @@ class ApiAssembly: ApiAssemblyProtocol {
 				parser: r.resolve(ParserProtocol.self)!,
 				cache: r.resolve(CacheProtocol.self)!)
 		}
-
-		return container.resolve(ApiProtocol.self)!
 	}
 }

@@ -35,6 +35,7 @@ extension AppDelegate {
 	func registerModules() {
 		ListAssembly().assemble(container: container)
 		DetailAssembly().assemble(container: container)
+		ApiAssembly().assemble(container: container)
 	}
 
 	static var instance: AppDelegate {

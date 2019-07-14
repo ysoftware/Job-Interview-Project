@@ -16,7 +16,6 @@ class Services {
 
 	let api:ApiProtocol = {
 
-		let assembly:ApiAssemblyProtocol = ApiAssembly()
-		return assembly.assemble()
+		return AppDelegate.instance.container.resolve(ApiProtocol.self)!
 	}()
 }
