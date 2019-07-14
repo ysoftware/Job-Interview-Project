@@ -1,5 +1,5 @@
 framework module Pods_MTS_Test {
-  umbrella header "Pods-MTS-Test-umbrella.h"
+  umbrella header "Pods-Job-Interview-umbrella.h"
 
   export *
   module * { export * }
