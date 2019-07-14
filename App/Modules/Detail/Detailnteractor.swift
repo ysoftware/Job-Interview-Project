@@ -12,8 +12,8 @@ class DetailInteractor: DetailInteractorProtocol {
 
 	private let recipeId:String
 
-	required init(recipeId:String) {
-		self.recipeId = recipeId
+	required init(with input:DetailModuleInput) {
+		self.recipeId = input.recipeId
 	}
 
 	// MARK: - Methods

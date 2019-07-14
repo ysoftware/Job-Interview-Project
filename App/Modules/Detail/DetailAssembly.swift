@@ -1,5 +1,5 @@
 //
-//  DetailConfigurator.swift
+//  DetailAssembly.swift
 //  MTS-Test
 //
 //  Created by ysoftware on 23/06/2019.
@@ -8,26 +8,33 @@
 
 import Swinject
 
-class DetailConfigurator {
+struct DetailIdInput: DetailModuleInput {
 
-	func configure(with view: DetailViewController, recipeId:String) -> DetailPresenterProtocol {
+	let recipeId: String
+}
+
+class DetailAssembly {
+
+	func assemble(with input:DetailModuleInput) -> DetailViewProtocol {
+		let viewController = R.storyboard.main.detailViewController()!
 		let container = Container()
 
 		container.register(DetailInteractorProtocol.self) { _ in
-			DetailInteractor(recipeId: recipeId)
+			DetailInteractor(with: input)
 		}
 
 		container.register(DetailRouterProtocol.self) { _ in
-			DetailRouter(viewController: view)
+			DetailRouter(viewController: viewController)
 		}
 
 		container.register(DetailPresenterProtocol.self) { _ in
-			let presenter = DetailPresenter(with: view, recipeId: recipeId)
+			let presenter = DetailPresenter(with: viewController, input: input)
 			presenter.interactor = container.resolve(DetailInteractorProtocol.self)!
 			presenter.router = container.resolve(DetailRouterProtocol.self)!
 			return presenter
 		}
 
-		return container.resolve(DetailPresenterProtocol.self)!
+		viewController.presenter = container.resolve(DetailPresenterProtocol.self)!
+		return viewController
 	}
 }

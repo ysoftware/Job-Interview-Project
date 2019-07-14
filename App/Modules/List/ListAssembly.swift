@@ -1,5 +1,5 @@
 //
-//  ListConfigurator.swift
+//  ListAssembly.swift
 //  MTS-Test
 //
 //  Created by ysoftware on 22/06/2019.
@@ -8,9 +8,10 @@
 
 import Swinject
 
-class ListConfigurator {
+class ListAssembly {
 
-	func configure(with view:ListViewController) -> ListPresenterProtocol {
+	func assemble() -> ListViewProtocol {
+		let viewController = R.storyboard.main.listViewController()!
 		let container = Container()
 
 		container.register(ListInteractorProtocol.self) { _ in
@@ -18,16 +19,17 @@ class ListConfigurator {
 		}
 
 		container.register(ListRouterProtocol.self) { _ in
-			ListRouter(viewController: view)
+			ListRouter(viewController: viewController)
 		}
 
 		container.register(ListPresenterProtocol.self) { _ in
-			let presenter = ListPresenter(with: view)
+			let presenter = ListPresenter(with: viewController)
 			presenter.interactor = container.resolve(ListInteractorProtocol.self)!
 			presenter.router = container.resolve(ListRouterProtocol.self)!
 			return presenter
 		}
 
-		return container.resolve(ListPresenterProtocol.self)!
+		viewController.presenter = container.resolve(ListPresenterProtocol.self)!
+		return viewController
 	}
 }

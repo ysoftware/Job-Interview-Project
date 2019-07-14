@@ -20,7 +20,7 @@ final class ListViewController: UIViewController {
 
 	// MARK: - Properties
 
-	private var presenter: ListPresenterProtocol!
+	var presenter: ListPresenterProtocol!
 	private let tableDelegate = ListTableDelegate()
 
 	// MARK: - Init
@@ -28,7 +28,6 @@ final class ListViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		configureModule()
 		configureTableView()
 		addRefreshControl()
 		presenter.didLoadView()
@@ -43,10 +42,6 @@ final class ListViewController: UIViewController {
 		tableView.refreshControl = UIRefreshControl()
 		tableView.refreshControl?.addTarget(self, action: #selector(refresh),
 											for: .valueChanged)
-	}
-
-	private func configureModule() {
-		presenter = ListConfigurator().configure(with: self)
 	}
 
 	// MARK: - Actions

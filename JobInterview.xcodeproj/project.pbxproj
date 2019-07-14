@@ -32,9 +32,9 @@
 		71AFB38B22BF60E40064077B /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38A22BF60E40064077B /* ResponseModel.swift */; };
 		71AFB38F22BF61DE0064077B /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AFB38E22BF61DE0064077B /* ListCell.xib */; };
 		71AFB39122BF61E80064077B /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39022BF61E80064077B /* ListCell.swift */; };
-		71AFB39322BF6AFF0064077B /* ListConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39222BF6AFF0064077B /* ListConfigurator.swift */; };
+		71AFB39322BF6AFF0064077B /* ListAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39222BF6AFF0064077B /* ListAssembly.swift */; };
 		71AFB39522BF71E20064077B /* DetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39422BF71E20064077B /* DetailProtocols.swift */; };
-		71AFB39722BF71FC0064077B /* DetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39622BF71FC0064077B /* DetailConfigurator.swift */; };
+		71AFB39722BF71FC0064077B /* DetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39622BF71FC0064077B /* DetailAssembly.swift */; };
 		71AFB39922BF72080064077B /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39822BF72080064077B /* DetailPresenter.swift */; };
 		71AFB39B22BF72130064077B /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39A22BF72130064077B /* DetailRouter.swift */; };
 		71AFB39D22BF72200064077B /* Detailnteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB39C22BF72200064077B /* Detailnteractor.swift */; };
@@ -70,9 +70,9 @@
 		71AFB38A22BF60E40064077B /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		71AFB38E22BF61DE0064077B /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		71AFB39022BF61E80064077B /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
-		71AFB39222BF6AFF0064077B /* ListConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConfigurator.swift; sourceTree = "<group>"; };
+		71AFB39222BF6AFF0064077B /* ListAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssembly.swift; sourceTree = "<group>"; };
 		71AFB39422BF71E20064077B /* DetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailProtocols.swift; sourceTree = "<group>"; };
-		71AFB39622BF71FC0064077B /* DetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailConfigurator.swift; sourceTree = "<group>"; };
+		71AFB39622BF71FC0064077B /* DetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAssembly.swift; sourceTree = "<group>"; };
 		71AFB39822BF72080064077B /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		71AFB39A22BF72130064077B /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		71AFB39C22BF72200064077B /* Detailnteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detailnteractor.swift; sourceTree = "<group>"; };
@@ -154,7 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				71AFB36A22BC09480064077B /* ListProtocols.swift */,
-				71AFB39222BF6AFF0064077B /* ListConfigurator.swift */,
+				71AFB39222BF6AFF0064077B /* ListAssembly.swift */,
 				71AFB36822BC09190064077B /* ListView.swift */,
 				71AFB35C22BC06760064077B /* ListPresenter.swift */,
 				71AFB35E22BC089C0064077B /* ListRouter.swift */,
@@ -202,7 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				71AFB39422BF71E20064077B /* DetailProtocols.swift */,
-				71AFB39622BF71FC0064077B /* DetailConfigurator.swift */,
+				71AFB39622BF71FC0064077B /* DetailAssembly.swift */,
 				71AFB37B22BE29910064077B /* DetailView.swift */,
 				71AFB39822BF72080064077B /* DetailPresenter.swift */,
 				71AFB39A22BF72130064077B /* DetailRouter.swift */,
@@ -409,7 +409,7 @@
 				71AFB36522BC08D00064077B /* ApiAssembly.swift in Sources */,
 				71AFB37C22BE29910064077B /* DetailView.swift in Sources */,
 				71AFB38122BE2AE00064077B /* R.generated.swift in Sources */,
-				71AFB39722BF71FC0064077B /* DetailConfigurator.swift in Sources */,
+				71AFB39722BF71FC0064077B /* DetailAssembly.swift in Sources */,
 				71AFB39F22BFB9300064077B /* StatusBar.swift in Sources */,
 				71AFB39922BF72080064077B /* DetailPresenter.swift in Sources */,
 				71AFB39D22BF72200064077B /* Detailnteractor.swift in Sources */,
@@ -419,7 +419,7 @@
 				71AFB36922BC09190064077B /* ListView.swift in Sources */,
 				71AFB38822BE58A90064077B /* ListDataSource.swift in Sources */,
 				71AFB36E22BCEA6D0064077B /* Parser.swift in Sources */,
-				71AFB39322BF6AFF0064077B /* ListConfigurator.swift in Sources */,
+				71AFB39322BF6AFF0064077B /* ListAssembly.swift in Sources */,
 				71AFB35922BC04E30064077B /* Detail.swift in Sources */,
 				71AFB35D22BC06760064077B /* ListPresenter.swift in Sources */,
 				71AFB37022BCEA880064077B /* Cache.swift in Sources */,

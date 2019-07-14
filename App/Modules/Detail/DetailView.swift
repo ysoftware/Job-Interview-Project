@@ -21,7 +21,8 @@ final class DetailViewController: UIViewController {
 
 	// MARK: - Properties
 
-	private var presenter:DetailPresenterProtocol!
+	var presenter:DetailPresenterProtocol!
+	private var input:DetailModuleInput!
 
 	// MARK: - Init
 
@@ -30,11 +31,7 @@ final class DetailViewController: UIViewController {
 
 		presenter.didLoadView()
 	}
-
-	func configureModule(with recipeId:String) {
-		presenter = DetailConfigurator().configure(with: self, recipeId: recipeId)
-	}
-
+	
 	@IBAction func openWebsiteTapped(_ sender: Any) {
 		presenter.openWebsiteTapped()
 	}

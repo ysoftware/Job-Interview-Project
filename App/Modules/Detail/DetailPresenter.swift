@@ -24,8 +24,8 @@ class DetailPresenter: DetailPresenterProtocol {
 
 	// MARK: - Init
 
-	required init(with view:DetailViewProtocol, recipeId:String) {
-		self.recipeId = recipeId
+	required init(with view:DetailViewProtocol, input:DetailModuleInput) {
+		self.recipeId = input.recipeId
 		self.view = view
 	}
 

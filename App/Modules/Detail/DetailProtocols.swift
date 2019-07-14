@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol DetailModuleInput {
+
+	var recipeId:String { get }
+}
+
 protocol DetailViewProtocol: class {
 
 	func setup(with recipe:Detail)
