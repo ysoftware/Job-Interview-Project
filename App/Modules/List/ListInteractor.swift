@@ -23,15 +23,13 @@ extension ListInteractor: ListInteractorInput {
 
 	func fetchList() {
 
-		// to-do check if already loading
-
 		reachedEnd = false
 		page = 1
-		loadMore(self.output.didFetchList)
+		loadMore(output.didFetchList)
 	}
 
 	func loadMore() {
-		loadMore(self.output.didloadMore)
+		loadMore(output.didloadMore)
 	}
 
 	private func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {

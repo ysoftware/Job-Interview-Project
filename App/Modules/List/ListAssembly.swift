@@ -41,8 +41,7 @@ class ListAssembly: Assembly {
 			ListInteractor()
 		}.initCompleted { resolver, instance in
 			instance.output = resolver.resolve(ListInteractorOutput.self)
-		}
-		.implements(ListInteractorInput.self)
+		}.implements(ListInteractorInput.self)
 	}
 
 	private func registerRouter(in container: Container) {

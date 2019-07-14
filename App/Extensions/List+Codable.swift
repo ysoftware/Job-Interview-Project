@@ -17,7 +17,8 @@ extension List : Decodable where Element : Decodable {
 			let element = try container.decode(Element.self)
 			self.append(element)
 		}
-	} }
+	}
+}
 
 extension List : Encodable where Element : Encodable {
 	public func encode(to encoder: Encoder) throws {
@@ -25,4 +26,5 @@ extension List : Encodable where Element : Encodable {
 		for element in self {
 			try element.encode(to: container.superEncoder())
 		}
-	} }
+	}
+}
