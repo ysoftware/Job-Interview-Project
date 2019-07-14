@@ -20,6 +20,8 @@ class ListPresenter: ListPresenterProtocol {
 
 	var interactor: ListInteractorProtocol!
 
+	var selectedRecipe:Recipe?
+
 	// MARK: - Init
 
 	required init(with view:ListViewProtocol) {
@@ -76,9 +78,8 @@ class ListPresenter: ListPresenterProtocol {
 	}
 
 	func didTapElement(_ index: Int) {
-		let recipe = dataSource.getRecipe(at: index)
-		let input = DetailIdInput(recipeId: recipe.recipe_id)
-		router.presentDetail(with: input)
+		selectedRecipe = dataSource.getRecipe(at: index)
+		router.presentDetail(with: self)
 	}
 
 	func didTapTryAgain() {
@@ -91,5 +92,12 @@ class ListPresenter: ListPresenterProtocol {
 
 	private func showMore(_ data: [Recipe]) {
 		dataSource.append(data)
+	}
+}
+
+extension ListPresenter: DetailModuleInput {
+
+	var recipeId: String {
+		return selectedRecipe?.recipe_id ?? ""
 	}
 }

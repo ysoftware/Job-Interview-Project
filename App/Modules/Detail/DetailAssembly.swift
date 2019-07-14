@@ -8,11 +8,6 @@
 
 import Swinject
 
-struct DetailIdInput: DetailModuleInput {
-
-	let recipeId: String
-}
-
 class DetailAssembly {
 
 	func assemble(with input:DetailModuleInput) -> DetailViewProtocol {
