@@ -16,7 +16,9 @@ class DetailInteractor {
 extension DetailInteractor: DetailInteractorInput {
 
 	func loadRecipe(_ recipeId:String) {
-		Services.shared.api.getDetail(id: recipeId) { result in
+		let api = container.resolve(ApiProtocol.self)!
+
+		api.getDetail(id: recipeId) { result in
 			self.output.didLoadRecipe(result.map { $0.recipe })
 		}
 	}

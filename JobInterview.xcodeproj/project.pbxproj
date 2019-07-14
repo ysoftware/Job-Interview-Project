@@ -27,7 +27,6 @@
 		71AFB37722BD6C510064077B /* List+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37622BD6C510064077B /* List+Codable.swift */; };
 		71AFB37C22BE29910064077B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB37B22BE29910064077B /* DetailView.swift */; };
 		71AFB38122BE2AE00064077B /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38022BE2ADF0064077B /* R.generated.swift */; };
-		71AFB38422BE39E80064077B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38322BE39E80064077B /* Service.swift */; };
 		71AFB38822BE58A90064077B /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38722BE58A90064077B /* ListDataSource.swift */; };
 		71AFB38B22BF60E40064077B /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AFB38A22BF60E40064077B /* ResponseModel.swift */; };
 		71AFB38F22BF61DE0064077B /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AFB38E22BF61DE0064077B /* ListCell.xib */; };
@@ -65,7 +64,6 @@
 		71AFB37622BD6C510064077B /* List+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Codable.swift"; sourceTree = "<group>"; };
 		71AFB37B22BE29910064077B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		71AFB38022BE2ADF0064077B /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		71AFB38322BE39E80064077B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		71AFB38722BE58A90064077B /* ListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
 		71AFB38A22BF60E40064077B /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		71AFB38E22BF61DE0064077B /* ListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 		71AFB38222BE39DC0064077B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				71AFB38322BE39E80064077B /* Service.swift */,
 				71AFB36C22BCEA590064077B /* Api */,
 			);
 			path = Services;
@@ -404,7 +401,6 @@
 				71AFB39122BF61E80064077B /* ListCell.swift in Sources */,
 				71AFB36322BC08C60064077B /* Network.swift in Sources */,
 				71AFB37722BD6C510064077B /* List+Codable.swift in Sources */,
-				71AFB38422BE39E80064077B /* Service.swift in Sources */,
 				71AFB36B22BC09480064077B /* ListProtocols.swift in Sources */,
 				71AFB36522BC08D00064077B /* ApiAssembly.swift in Sources */,
 				71AFB37C22BE29910064077B /* DetailView.swift in Sources */,

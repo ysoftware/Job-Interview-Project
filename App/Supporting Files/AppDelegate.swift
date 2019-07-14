@@ -9,14 +9,13 @@
 import UIKit
 import Swinject
 
+// shared container
+let container = Container()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
-	let container = Container()
-
-	let services = Services()
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -36,9 +35,5 @@ extension AppDelegate {
 		ListAssembly().assemble(container: container)
 		DetailAssembly().assemble(container: container)
 		ApiAssembly().assemble(container: container)
-	}
-
-	static var instance: AppDelegate {
-		return UIApplication.shared.delegate as! AppDelegate
 	}
 }

@@ -16,7 +16,7 @@ class ListRouter {
 extension ListRouter: ListRouterInput {
 
 	func presentDetail(with input:DetailModuleInput) {
-		let detailVC = AppDelegate.instance.container.resolve(DetailViewController.self)!
+		let detailVC = container.resolve(DetailViewController.self)!
 		transitionHandler.show(detailVC, sender: self)
 	}
 }

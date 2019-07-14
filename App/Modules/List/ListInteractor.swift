@@ -37,7 +37,9 @@ extension ListInteractor: ListInteractorInput {
 	private func loadMore(_ completion: @escaping (Result<[Recipe], Error>) -> Void) {
 		guard !reachedEnd else { return }
 
-		Services.shared.api.getRecipes(page: page) { result in
+		let api = container.resolve(ApiProtocol.self)!
+
+		api.getRecipes(page: page) { result in
 			completion(result.map { $0.recipes })
 			self.page += 1
 
