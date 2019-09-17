@@ -52,7 +52,6 @@ class Api: ApiProtocol {
 
 	func getRecipes(page:Int,
 					completion: @escaping (Result<ListResponse, Error>) -> Void) {
-//		let url = "http://ysoftware.ru/food/search\(page).json"
 		let url = "https://www.food2fork.com/api/search?key=\(apiKey)&page=\(page)"
 
 		get(url) { (result:Result<ListResponse, Error>) in
@@ -72,7 +71,6 @@ class Api: ApiProtocol {
 
 	func getDetail(id:String,
 				   completion: @escaping (Result<DetailResponse, Error>) -> Void) {
-//		let url = "http://ysoftware.ru/food/get\(id).json"
 		let url = "https://www.food2fork.com/api/get?key=\(apiKey)&rId=\(id)"
 
 		get(url) { (result:Result<DetailResponse, Error>) in
